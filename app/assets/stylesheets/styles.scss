@@ -1,0 +1,79 @@
+/* general and nav */
+/* color scheme navy-gray #223843 gray-white #EFF1F3 light purple #dbd3d8 light peach #d8b4a0 dark peach #d77a61 */
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Vollkorn SC', serif; */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #EFF1F3;
+}
+header {
+  position: fixed;
+  width: 100%;
+}
+.button-clear {
+  margin-bottom: 0px;
+}
+#topMenu {
+  padding: 2px 2px 0px 2px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+#navTitle {
+  font-size: 22px;
+}
+nav {
+  background-color: rgba(255, 255, 255, 0.4);
+  display: none;
+  padding-bottom: 2px;
+}
+/* other */
+h1 {
+  font-family: 'Vollkorn SC', serif;
+  font-size: 60px !important;
+}
+/* parallax classes */
+.parallax {
+  height: 600px;
+  margin: 0;
+  padding: 200px 0 260px 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.slides {
+  height: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 200px 0 400px 0;
+}
+.innerContent {
+  margin: 0 auto;
+  padding: 0px 100px;
+  width: 90%;
+}
+#home_slide {
+  background: url("fao_benjaminrasmussen_homepage.jpg") 50% 0 fixed;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+#slide2{
+  background-color: yellow;
+  color: #333333;
+}
+#slideBee{
+  background-color: red;
+  color: #333333;
+}
+#slide3{
+  background: url('img/slide3.jpg') 50% 0 fixed;
+  color: #fff;
+}
+#slide4{
+  background-color: purple;
+  color: #333333;
+}
+#slide5 {
+  background: url('img/slide5.jpg') 50% 0 no-repeat fixed;
+}

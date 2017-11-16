@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Food Insecurity | Overview</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://use.fontawesome.com/be1704dd14.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500|Vollkorn+SC" rel="stylesheet">
+    <%= stylesheet_link_tag 'application', "https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css" %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <div id="topMenu">
+          <button class="button-clear" id="menuButton">
+            <i class="fa fa-globe fa-2x" aria-hidden="true"></i>
+          </button>
+          <span id="navTitle">Food Insecurity</span>
+      </div>
+      <nav>
+        <%= render :partial => "/mains/menu" %>
+      </nav>
+    </header>
+    <section id="yieldContainer">
+      <%= yield %>
+    </section>
+  </body>
+</html>

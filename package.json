@@ -1,0 +1,7 @@
+{
+  "name": "megan_finalproj",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
