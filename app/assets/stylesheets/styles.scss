@@ -1,7 +1,5 @@
 /* general and nav */
 /* color scheme navy-gray #223843 gray-white #EFF1F3 light purple #dbd3d8 light peach #d8b4a0 dark peach #d77a61 */
-/* font-family: 'Roboto', sans-serif;
-font-family: 'Vollkorn SC', serif; */
 body {
   margin: 0;
   padding: 0;
@@ -18,9 +16,11 @@ header {
 #topMenu {
   padding: 2px 2px 0px 2px;
   background-color: rgba(255, 255, 255, 0.4);
+  visibility: hidden;
 }
 #navTitle {
   font-size: 22px;
+  color: black;
 }
 nav {
   background-color: rgba(255, 255, 255, 0.4);
@@ -31,20 +31,36 @@ nav {
 h1 {
   font-family: 'Vollkorn SC', serif;
   font-size: 60px !important;
+  margin-bottom: 0 !important;
+}
+footer {
+  text-align: center;
+  font-size: 10px;
+  padding: 2px;
+}
+.source {
+  display: none;
+}
+.stat {
+  font-size: 20px;
+  background-color: white;
+  border: 2px white solid;
+  border-radius: 50%;
+  padding: 5px;
+  margin: 3px;
 }
 /* parallax classes */
 .parallax {
   height: 600px;
   margin: 0;
   padding: 200px 0 260px 0;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 .slides {
   height: 300px;
   margin: 0 auto;
   overflow: hidden;
   padding: 200px 0 400px 0;
+  width: 100%;
 }
 .innerContent {
   margin: 0 auto;
@@ -52,28 +68,60 @@ h1 {
   width: 90%;
 }
 #home_slide {
-  background: url("fao_benjaminrasmussen_homepage.jpg") 50% 0 fixed;
+  background: url("UN_NafiseMotlaq_World Bank.jpg") 50% 0 no-repeat fixed;
+  background-size: cover;
   text-align: center;
   color: white;
   font-weight: 600;
   text-transform: uppercase;
 }
-#slide2{
-  background-color: yellow;
-  color: #333333;
+/* overwrites */
+em {
+  font-style: italic;
 }
-#slideBee{
-  background-color: red;
-  color: #333333;
+button.button-clear {
+  color: black !important;
 }
-#slide3{
-  background: url('img/slide3.jpg') 50% 0 fixed;
-  color: #fff;
+button.button-clear:hover {
+  color: #dbd3d8 !important;
 }
-#slide4{
-  background-color: purple;
-  color: #333333;
+#scrollDown i {
+  color: white;
+}
+/* other */
+#slide2 {
+  display: inline-block;
+  font-size: 36px;
+}
+.firstL {
+  color: purple;
+}
+#slide3 {
+  background-color: #223843;
+  text-align: center;
+}
+.count {
+  font-size: 62px;
+}
+#slide4 {
+  text-align: center;
+  font-size: 32px;
 }
 #slide5 {
-  background: url('img/slide5.jpg') 50% 0 no-repeat fixed;
+  background: url("UN_manuelElias.jpg") 50% 0 no-repeat fixed;
+  background-size: cover;
+  color: #D1d1d1;
+}
+#slide5 blockquote {
+  width: 450px;
+  margin-left: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+/* country map */
+#country {
+  // text-align: center;
+  background-color: #dbd3d8;
+}
+#countryMap {
+  margin: 75px;
 }
