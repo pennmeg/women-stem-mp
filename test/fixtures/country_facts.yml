@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: one
+  fact_1: MyText
+  source_1: MyText
+  fact_2: MyText
+  source_2: MyText
+  fact_3: MyText
+  source_3: MyText
+  fact_4: MyText
+  source_4: MyText
+  fact_5: MyText
+  source_5: MyText
+  fact_6: MyText
+  source_6: MyText
+
+two:
+  country: two
+  fact_1: MyText
+  source_1: MyText
+  fact_2: MyText
+  source_2: MyText
+  fact_3: MyText
+  source_3: MyText
+  fact_4: MyText
+  source_4: MyText
+  fact_5: MyText
+  source_5: MyText
+  fact_6: MyText
+  source_6: MyText
