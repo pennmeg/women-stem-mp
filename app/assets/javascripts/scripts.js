@@ -9,13 +9,9 @@ $(document).on('turbolinks:load', function() {
     console.log("=== PATHNAME: /country ===");
     loadMap();
   };
-  // $(function(){
-  //   $('#world-map').vectorMap({
-  //     map: 'world_mill'
-  //   });
-  // });
+  // map functions and styling
+  // $(function(){ $('#world-map').vectorMap({ map: 'world_mill' }); });
   function loadMap(){
-  // $(function(){
     console.log("=== loadMap ===");
     new jvm.Map({
       container: $('#world-map'),
@@ -49,18 +45,24 @@ $(document).on('turbolinks:load', function() {
         var name = code;
         console.log("-- click --");
         console.log("Country: ", name);
-        if (name == "BR") {
-          console.log("Show BR Profile");
-        } else {
-          console.log("Please select a highlighted country")
+        var munCountries = ["BR", "CN", "CR", "EG", "DE", "GR", "IN", "IT", "JP", "LU", "MM", "NL", "NG", "SA", "US"];
+        for (var i = 0; i < munCountries.length; i++) {
+          if (name == munCountries[i]) {
+            console.log("Show " + name + " country profile");
+            break;
+          } else {
+            console.log("Please select a highlighted country");
+          }
         }
       },
     });
   };
+  // show and hide the menu
   $('#menuButton').on('click', function(){
     console.log("--- menuButton ---");
-    $('nav').slideToggle('slow');
+    $('nav').slideToggle('fast');
   });
+  // move to different sections on the webpage
   $('#scrollDown').on('click', function() {
     scrollOverview();
   });
@@ -68,16 +70,30 @@ $(document).on('turbolinks:load', function() {
     scrollOverview();
   });
   function scrollOverview(){
-    console.log("--- go to overview ---");
-    var offset = 20;
+    console.log("--- go to overview section ---");
     $('html, body').animate({
-     scrollTop: $("#overview").offset().top + offset}, 1500);
+     scrollTop: $("#overview").offset().top}, 1500);
   };
-  $('#countryButton').on('click', function(){
-    console.log("--- go to country ---");
-    var offset = 20;
+  $('#problemButton').on('click', function(){
+    console.log("--- go to problem section ---");
     $('html, body').animate({
-     scrollTop: $("#country").offset().top + offset}, 1500);
+     scrollTop: $("#problem").offset().top}, 1500);
+  });
+  $('#internationalButton').on('click', function(){
+    console.log("--- go to international section ---");
+    $('html, body').animate({
+     scrollTop: $("#international").offset().top}, 1500);
+  });
+  $('#countryButton').on('click', function(){
+    console.log("--- go to country section ---");
+    $('html, body').animate({
+     scrollTop: $("#country").offset().top}, 1500);
+  });
+  $('#munButton').on('click', function(){
+    var offset = 18;
+    console.log("--- go to mun section ---");
+    $('html, body').animate({
+     scrollTop: $("#mun").offset().top + offset}, 1500);
   });
   $('.count').each(function () {
       $(this).prop('Counter',0).animate({
