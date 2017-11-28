@@ -1,17 +1,54 @@
+/* sass variables */
+$site-white: #FDFDFF;
+$site-black: #111;
+$light-grey: #F1F1F2;
+$dark-grey: #BCBABE;
+$deep-purple: #363237;
+$blush: #D09683;
+$transparent-background: rgba(255, 255, 255, 0.4);
+$parallax-photo: 50% 0 no-repeat fixed;
 /* general nav footer */
 body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: #FDFDFF;
+  background-color: $site-white;
+  color: $site-black;
   font-family: 'Raleway', sans-serif;
+  p {
+    font-size: 26px;
+  }
   a {
     font-family: 'Raleway', sans-serif;
+    color: $site-black;
+    text-decoration: none;
   }
-}
-.source {
-  display: none;
+  a:hover {
+    color: $deep-purple;
+  }
+  button {
+    color: $site-black;
+  }
+  button:hover {
+    color: $deep-purple;
+  }
+  #topButton {
+    // visibility: hidden;
+    position: fixed; /* Fixed/sticky position */
+    bottom: 30px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    padding: 8px;
+    background-color: $site-white;
+  }
+  .source {
+    display: none;
+  }
+  .quote {
+    background-color: $transparent-background;
+    padding: 2px;
+  }
 }
 header {
   position: fixed;
@@ -21,12 +58,19 @@ header {
   }
   #topMenu {
     padding: 4px;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: $transparent-background;
   }
   nav {
     display: none;
     padding-bottom: 4px;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: $transparent-background;
+  }
+  #homeButton {
+    width: 25%;
+    padding-left: 7px;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
   }
 }
 footer {
@@ -35,7 +79,7 @@ footer {
   padding: 3px;
   height: 18px;
   a {
-    color: black;
+    color: $site-black;
     text-decoration: none;
   }
   a:hover {
@@ -62,7 +106,6 @@ footer {
   height: 500px;
   margin: 0;
   padding: 200px 0px;
-  background-size: cover;
 }
 .slides {
   height: 300px;
@@ -74,47 +117,53 @@ footer {
 .innerContent {
   padding: 0px 100px;
 }
-/* other */
-h1 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 60px;
-}
-
-
-.stat {
-  font-size: 20px;
-  background-color: white;
-  border: 2px white solid;
-  border-radius: 50%;
-  padding: 5px;
-  margin: 3px;
-}
-
-
+/* homepage */
 #home_slide {
-  background: url("UN_NafiseMotlaq_World Bank.jpg") 50% 0 no-repeat fixed;
+  background: url("UN_NafiseMotlaq_World Bank.jpg") $parallax-photo;
   background-size: cover;
   text-align: center;
-  color: white;
+  color: $site-white;
   font-weight: 600;
   text-transform: uppercase;
   #scrollDown i {
-    color: white;
+    color: $site-white;
+  }
+  #scrollDown i:hover {
+    color: $light-grey;
+  }
+  h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 60px;
   }
 }
 /* other */
+.otherButton {
+  background-color: $dark-grey;
+  padding: 3px;
+  border-radius: 3px;
+  font-size: 16px;
+}
+.stat {
+  font-size: 40px;
+  background-color: $deep-purple;
+  border: 2px $deep-purple solid;
+  border-radius: 50%;
+  padding: 6px;
+  margin: 3px;
+}
 #slide2 {
   font-size: 42px;
   #define {
     width: 50%;
   }
   .firstL {
-    color: purple;
+    color: $blush;
   }
 }
 
 #slide3 {
   background-color: #223843;
+  color: $light-grey;
   text-align: center;
   .column {
     width: 50%;
@@ -130,6 +179,12 @@ h1 {
 #slide5 {
   background: url("VisualNewsAssociates_WB.jpg") 50% 0 no-repeat fixed;
   background-size: cover;
+  color: $light-grey;
+  p {
+    background-color: rgba(208, 150, 131, 0.5);
+    padding: 5px;
+    border-radius: 3px;
+  }
 }
 #slide51 {
   background: url("UN_manuelElias.jpg") 50% 0 no-repeat fixed;

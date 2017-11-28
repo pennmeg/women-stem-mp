@@ -64,18 +64,20 @@ $(document).on('turbolinks:load', function() {
             dataType: 'json'
           }).success(function(data) {
             console.log("*** ajax success ***");
-            // displayCountryData(data);
-          }).error(function(errorData) {
+            console.dir(data); // brings the data from the ajx call
+            displayCountryData(data);
+          }).error(function(data) {
             console.log("*** ajax failed ***");
-            errorCountryData(errorData);
+            errorCountryData(data);
           });
-        }
+        };
         function displayCountryData(data) {
           console.log("=== displayCountryData ===");
-          // var infoHolder = document.getElementById('countryInfo');
-          // infoHolder.innerHTML = "";
-          // var countryInfo = "<h3>Success</h3>";
-          // infoHolder.innerHTML = countryInfo;
+          var countryName = data[0].name;
+          console.log("countryName: ", countryName);
+          var infoHolder = document.getElementById('countryInfo');
+          infoHolder.innerHTML = "";
+          infoHolder.innerHTML += countryName;
         };
         function errorCountryData(errorData) {
           console.log("=== errorCountryData ===");
@@ -139,5 +141,10 @@ $(document).on('turbolinks:load', function() {
           }
       });
   });
-// Add code to make navigation/header not show until you are past the home slide
+// go to top of webpage
+$('#topButton').on('click', function(){
+  console.log("-- clicked topButton --");
+  window.scrollTo(0, 0);
+})
+// Add code to make navigation/header not show until you are past the home slide same with top button
 });
