@@ -4,6 +4,16 @@ class MainsController < ApplicationController
     end
     def country
       puts "*** country ***"
-      puts "GOOGLE_JS_KEY: #{GOOGLE_JS_KEY}"
+      @countries = Country.all
+    end
+    def get_country_data
+      puts "*** get_country_data ***"
+      # country codes are equal
+      @countries = Country.where(:country_code => params[:countryCode])
+      puts "@countries: #{@countries.inspect}"
+      # country data = factbook.find(countryid) or country.Factbook
+      respond_to do |format|
+          format.html { render :country }
+      end
     end
 end

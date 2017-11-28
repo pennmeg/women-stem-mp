@@ -5,7 +5,9 @@
       <div id="world-map" style="width: 600px; height: 400px"></div>
     </div>
     <div id="countryInfo">
-      <h3>Country Name</h3>
+      <% @countries.each do |c| %>
+        <h3 id="countryName"><%= c[:name] %></h3>
+      <% end %>
     </div>
   </div>
 </section>

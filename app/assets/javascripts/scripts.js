@@ -42,18 +42,51 @@ $(document).on('turbolinks:load', function() {
         }],
       },
       onRegionClick: function(event, code) {
-        var name = code;
+        var countryCode = code;
         console.log("-- click --");
-        console.log("Country: ", name);
+        console.log("Country: ", countryCode);
         var munCountries = ["BR", "CN", "CR", "EG", "DE", "GR", "IN", "IT", "JP", "LU", "MM", "NL", "NG", "SA", "US"];
         for (var i = 0; i < munCountries.length; i++) {
-          if (name == munCountries[i]) {
-            console.log("Show " + name + " country profile");
-            break;
+          if (countryCode == munCountries[i]) {
+            console.log("Show " + countryCode + " country profile");
+            getCountryData(countryCode);
+            // break;
           } else {
-            console.log("Please select a highlighted country");
+            console.log("Choose another country");
           }
+        };
+        function getCountryData(countryCode){
+          console.log("=== getCountryData ===");
+          $.ajax({
+            type: "GET",
+            url: '/getCountryData',
+            data: {countryCode: countryCode},
+            dataType: 'json'
+          }).success(function(data) {
+            console.log("*** ajax success ***");
+            // displayCountryData(data);
+          }).error(function(errorData) {
+            console.log("*** ajax failed ***");
+            errorCountryData(errorData);
+          });
         }
+        function displayCountryData(data) {
+          console.log("=== displayCountryData ===");
+          // var infoHolder = document.getElementById('countryInfo');
+          // infoHolder.innerHTML = "";
+          // var countryInfo = "<h3>Success</h3>";
+          // infoHolder.innerHTML = countryInfo;
+        };
+        function errorCountryData(errorData) {
+          console.log("=== errorCountryData ===");
+          var infoHolder = document.getElementById('countryInfo')
+          infoHolder.innerHTML = "";
+          var countryErrorMessage = "<p>There was an error in processing the data. Please try again.</p>";
+          infoHolder.innerHTML = countryErrorMessage;
+        }
+        // call a function
+        // ajax call and pass the country_code
+        // send as ajax data the name to the server
       },
     });
   };
