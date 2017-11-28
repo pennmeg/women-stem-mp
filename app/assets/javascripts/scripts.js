@@ -64,7 +64,7 @@ $(document).on('turbolinks:load', function() {
             dataType: 'json'
           }).success(function(data) {
             console.log("*** ajax success ***");
-            console.dir(data); // brings the data from the ajx call
+            console.dir(data); // brings the data from the ajax call: GOLD!
             displayCountryData(data);
           }).error(function(data) {
             console.log("*** ajax failed ***");
@@ -73,11 +73,37 @@ $(document).on('turbolinks:load', function() {
         };
         function displayCountryData(data) {
           console.log("=== displayCountryData ===");
-          var countryName = data[0].name;
+          var countryName = data.country.name;
+          var population = data.facts[0].population;
+          var pop_yr = data.facts[0].pop_yr;
+          var sex_ratio = data.facts[0].sex_ratio;
+          var sex_ratio_yr = data.facts[0].sex_ratio_yr;
+          var literacy_m = data.facts[0].literacy_m;
+          var literacy_f = data.facts[0].literacy_f;
+          var lit_yr = data.facts[0].lit_yr;
+          var youth_unemploy_m = data.facts[0].youth_unemploy_m;
+          var youth_unemploy_f = data.facts[0].youth_unemploy_f;
+          var youth_unemploy_yr = data.facts[0].youth_unemploy_yr;
+          var gdp_per_capita = data.facts[0].gdp_per_capita;
+          var gdp_capita_yr = data.facts[0].gdp_capita_yr;
           console.log("countryName: ", countryName);
           var infoHolder = document.getElementById('countryInfo');
           infoHolder.innerHTML = "";
+          countryName = "<h3>" + countryName + "</h3><br>"
+          var source_factbook = data.facts[0].source_factbook;
+          source_factbook = "<em>" + source_factbook + "</em>";
+          population = "<p>Population: " + population + " (" + pop_yr + ")</p>";
+          sex_ratio = "<p>Sex Ratio: " + sex_ratio + " male/female (" + sex_ratio_yr + ")</p>";
+          var literacy = "<p>Literacy: male " + literacy_m + "% | female " + literacy_f + "% (" + lit_yr + ")</p>";
+          var youth_unemploy = "<p>Youth Unemployment (15-24yrs): male " + youth_unemploy_m + "% | female " + youth_unemploy_f + "% (" + youth_unemploy_yr + ")</p>";
+          var gdp_capita = "<p>GDP Per Capita (PPP): $" + gdp_per_capita + " (" + gdp_capita_yr + ")</p>";
           infoHolder.innerHTML += countryName;
+          infoHolder.innerHTML += source_factbook;
+          infoHolder.innerHTML += population;
+          infoHolder.innerHTML += sex_ratio;
+          infoHolder.innerHTML += literacy;
+          infoHolder.innerHTML += youth_unemploy;
+          infoHolder.innerHTML += gdp_capita;
         };
         function errorCountryData(errorData) {
           console.log("=== errorCountryData ===");
@@ -86,9 +112,6 @@ $(document).on('turbolinks:load', function() {
           var countryErrorMessage = "<p>There was an error in processing the data. Please try again.</p>";
           infoHolder.innerHTML = countryErrorMessage;
         }
-        // call a function
-        // ajax call and pass the country_code
-        // send as ajax data the name to the server
       },
     });
   };
