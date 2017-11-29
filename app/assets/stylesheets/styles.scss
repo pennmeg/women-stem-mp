@@ -3,8 +3,8 @@ $site-white: #FDFDFF;
 $site-black: #111;
 $light-grey: #F1F1F2;
 $dark-grey: #BCBABE;
-$deep-purple: #363237;
-$blush: #D09683;
+$deep-purple: #3F3250;
+$coral: #E14658;
 $transparent-background: rgba(255, 255, 255, 0.4);
 $parallax-photo: 50% 0 no-repeat fixed;
 /* general nav footer */
@@ -22,13 +22,15 @@ body {
     text-decoration: none;
   }
   a:hover {
-    color: $deep-purple;
+    color: $light-grey;
+    cursor: pointer;
   }
   button {
     color: $site-black;
   }
   button:hover {
-    color: $deep-purple;
+    color: $coral;
+    cursor: pointer;
   }
   #topButton {
     // visibility: hidden;
@@ -62,25 +64,20 @@ header {
     padding-bottom: 4px;
     background-color: $transparent-background;
   }
-  #homeButton {
-    width: 25%;
-    padding-left: 7px;
-    font-size: 11px;
-    text-transform: uppercase;
-    text-align: center;
-  }
 }
 footer {
   text-align: center;
-  font-size: 10px;
+  font-size: 11px;
   padding: 3px;
   height: 18px;
   a {
     color: $site-black;
     text-decoration: none;
+    text-transform: uppercase;
   }
   a:hover {
-    text-decoration: underline;
+    background-color: $coral;
+    cursor: pointer;
   }
 }
 /* wrapper */
@@ -127,6 +124,8 @@ footer {
   }
   #scrollDown i:hover {
     color: $light-grey;
+    cursor: pointer;
+
   }
   h1 {
     font-family: 'Roboto', sans-serif;
@@ -135,10 +134,11 @@ footer {
 }
 /* other */
 .otherButton {
-  background-color: $dark-grey;
-  padding: 3px;
-  border-radius: 3px;
-  font-size: 16px;
+  background-color: $coral;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
 }
 .stat {
   font-size: 40px;
@@ -154,7 +154,7 @@ footer {
     width: 50%;
   }
   .firstL {
-    color: $blush;
+    color: $coral;
   }
 }
 
@@ -198,6 +198,33 @@ footer {
 }
 #world-map {
   margin: 0 auto;
+}
+h2 {
+  font-size: 26px;
+  text-align: center;
+}
+#countryInfo h3 {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+#countryInfo a, li {
+  font-size: 20px;
+}
+#homeButton {
+  position: fixed; /* Fixed/sticky position */
+  // bottom: 30px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  padding: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: $coral;
+  border-radius: 4px;
+}
+#homeButton:hover {
+  color: $light-grey;
+  cursor: pointer;
 }
 /* mun */
 #mun {

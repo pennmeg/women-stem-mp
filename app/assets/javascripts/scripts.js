@@ -19,25 +19,25 @@ $(document).on('turbolinks:load', function() {
       series: {
         regions: [{
           scale: {
-            blue: '#66C2A5'
+            coral: '#E14658'
           },
           attribute: 'fill',
           values: {
-            "BR": 'blue', // Brazil
-            "CN": 'blue', // China
-            "CR": 'blue', // Costa Rica
-            "EG": 'blue', // Egypt
-            "DE": 'blue', // Germany
-            "GR": 'blue', // Greece
-            "IN": 'blue', // India
-            "IT": 'blue', // Italy
-            "JP": 'blue', // Japan
-            "LU": 'blue', // Luxembourg
-            "MM": 'blue', // Myanmar
-            "NL": 'blue', // Netherlands
-            "NG": 'blue', // Nigeria
-            "SA": 'blue', // Saudi Arabia
-            "US": 'blue' // USA
+            "BR": 'coral', // Brazil
+            "CN": 'coral', // China
+            "CR": 'coral', // Costa Rica
+            "EG": 'coral', // Egypt
+            "DE": 'coral', // Germany
+            "GR": 'coral', // Greece
+            "IN": 'coral', // India
+            "IT": 'coral', // Italy
+            "JP": 'coral', // Japan
+            "LU": 'coral', // Luxembourg
+            "MM": 'coral', // Myanmar
+            "NL": 'coral', // Netherlands
+            "NG": 'coral', // Nigeria
+            "SA": 'coral', // Saudi Arabia
+            "US": 'coral' // USA
           }
         }],
       },
@@ -50,7 +50,7 @@ $(document).on('turbolinks:load', function() {
           if (countryCode == munCountries[i]) {
             console.log("Show " + countryCode + " country profile");
             getCountryData(countryCode);
-            // break;
+            break;
           } else {
             console.log("Choose another country");
           }
@@ -86,24 +86,26 @@ $(document).on('turbolinks:load', function() {
           var youth_unemploy_yr = data.facts[0].youth_unemploy_yr;
           var gdp_per_capita = data.facts[0].gdp_per_capita;
           var gdp_capita_yr = data.facts[0].gdp_capita_yr;
-          console.log("countryName: ", countryName);
+          var source_factbook = data.facts[0].source_factbook;
           var infoHolder = document.getElementById('countryInfo');
           infoHolder.innerHTML = "";
           countryName = "<h3>" + countryName + "</h3><br>"
-          var source_factbook = data.facts[0].source_factbook;
-          source_factbook = "<em>" + source_factbook + "</em>";
-          population = "<p>Population: " + population + " (" + pop_yr + ")</p>";
-          sex_ratio = "<p>Sex Ratio: " + sex_ratio + " male/female (" + sex_ratio_yr + ")</p>";
-          var literacy = "<p>Literacy: male " + literacy_m + "% | female " + literacy_f + "% (" + lit_yr + ")</p>";
-          var youth_unemploy = "<p>Youth Unemployment (15-24yrs): male " + youth_unemploy_m + "% | female " + youth_unemploy_f + "% (" + youth_unemploy_yr + ")</p>";
-          var gdp_capita = "<p>GDP Per Capita (PPP): $" + gdp_per_capita + " (" + gdp_capita_yr + ")</p>";
+          source_factbook = "<em><a href='https://www.cia.gov/library/publications/the-world-factbook/'>" + source_factbook + "</a></em>";
+          population = "<li>Population: " + population + " (" + pop_yr + ")</li>";
+          sex_ratio = "<li>Sex Ratio: " + sex_ratio + " male/female (" + sex_ratio_yr + ")</li>";
+          var literacy = "<li>Literacy: male " + literacy_m + "% | female " + literacy_f + "% (" + lit_yr + ")</li>";
+          var youth_unemploy = "<li>Youth Unemployment (15-24yrs): male " + youth_unemploy_m + "% | female " + youth_unemploy_f + "% (" + youth_unemploy_yr + ")</li>";
+          var gdp_capita = "<li>GDP Per Capita (PPP): $" + gdp_per_capita + " (" + gdp_capita_yr + ")</li>";
           infoHolder.innerHTML += countryName;
           infoHolder.innerHTML += source_factbook;
+          infoHolder.innerHTML += "<ul>"
           infoHolder.innerHTML += population;
           infoHolder.innerHTML += sex_ratio;
           infoHolder.innerHTML += literacy;
           infoHolder.innerHTML += youth_unemploy;
           infoHolder.innerHTML += gdp_capita;
+          infoHolder.innerHTML += "</ul>"
+
         };
         function errorCountryData(errorData) {
           console.log("=== errorCountryData ===");
