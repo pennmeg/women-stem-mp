@@ -81,6 +81,13 @@ footer {
     cursor: pointer;
   }
 }
+.linkButton {
+  background-color: $coral;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
 /* wrapper */
 .wrapper {
   display: flex;
@@ -134,7 +141,7 @@ footer {
   }
 }
 /* other */
-.otherButton {
+.linkButton {
   background-color: $coral;
   padding: 8px;
   border-radius: 4px;
@@ -219,12 +226,7 @@ h2 {
   // bottom: 30px; /* Place the button at the bottom of the page */
   left: 30px; /* Place the button 30px from the right */
   z-index: 99; /* Make sure it does not overlap */
-  padding: 8px;
-  font-size: 11px;
-  text-transform: uppercase;
   text-align: center;
-  background-color: $coral;
-  border-radius: 4px;
 }
 #homeButton:hover {
   color: $light-grey;

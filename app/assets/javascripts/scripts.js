@@ -8,23 +8,32 @@ $(document).on('turbolinks:load', function() {
   if (pathname == "/country") {
     console.log("=== PATHNAME: /country ===");
     loadMap();
+    $('header').css('visibility', 'visible');
+    $('#topButton').css('visibility', 'visible');
+  };
+  if (pathname == "/home") {
+    console.log("=== PATHNAME: /home ===");
+    hideNav();
   };
   // ==== hide buttons and nav on homepage
-  $(window).scroll(function() {
-    var homeSlide = 900;
-    if($(window).scrollTop() < homeSlide) {
-      $('header').css('visibility', 'hidden');
-      $('#topButton').css('visibility', 'hidden');
-    } else {
-      $('header').css('visibility', 'visible');
-      $('#topButton').css('visibility', 'visible');
-    };
-  });
+  function hideNav() {
+    console.log("=== hideNav ===");
+    $(window).scroll(function() {
+      var homeSlide = 900;
+      if($(window).scrollTop() < homeSlide) {
+        $('header').css('visibility', 'hidden');
+        $('#topButton').css('visibility', 'hidden');
+      } else {
+        $('header').css('visibility', 'visible');
+        $('#topButton').css('visibility', 'visible');
+      };
+    });
+  };
   // ==== scroll to the top of webpage when #topButton is clicked
   $('#topButton').on('click', function(){
     console.log("-- clicked topButton --");
     $('html, body').animate({
-     scrollTop: 0}, 'slow');
+     scrollTop: 0}, 1500);
   });
   // ==== show and hide the navigation bar
   $('#menuButton').on('click', function(){
@@ -40,31 +49,25 @@ $(document).on('turbolinks:load', function() {
   });
   function scrollOverview(){
     console.log("--- go to overview section ---");
-    var offset = 20;
+    var offset = -20;
     $('html, body').animate({
      scrollTop: $("#overview").offset().top + offset}, 1500);
   };
-  $('#problemButton').on('click', function(){
-    console.log("--- go to problem section ---");
-    var offset = 20;
-    $('html, body').animate({
-     scrollTop: $("#problem").offset().top + offset}, 1500);
-  });
   $('#internationalButton').on('click', function(){
     console.log("--- go to international section ---");
-    var offset = 20;
+    var offset = -20;
     $('html, body').animate({
      scrollTop: $("#international").offset().top + offset}, 1500);
   });
   $('#countryButton').on('click', function(){
     console.log("--- go to country section ---");
-    var offset = 20;
+    var offset = -20;
     $('html, body').animate({
      scrollTop: $("#country").offset().top + offset}, 1500);
   });
   $('#munButton').on('click', function(){
-    var offset = 18;
     console.log("--- go to mun section ---");
+    var offset = 150;
     $('html, body').animate({
      scrollTop: $("#mun").offset().top + offset}, 1500);
   });
@@ -122,8 +125,6 @@ $(document).on('turbolinks:load', function() {
             console.log("Show " + countryCode + " country profile");
             getCountryData(countryCode);
             break;
-          } else {
-            console.log("Choose another country");
           };
         };
         function getCountryData(countryCode){
