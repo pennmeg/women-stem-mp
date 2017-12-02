@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get "/home" => "mains#home"
   get "/country" => "mains#country"
   get "/getCountryData" => "mains#get_country_data"
+  resources :photos
 end

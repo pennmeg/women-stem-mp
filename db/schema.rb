@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120231021) do
+ActiveRecord::Schema.define(version: 20171202173217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,10 +32,6 @@ ActiveRecord::Schema.define(version: 20171120231021) do
     t.text "source_3"
     t.text "fact_4"
     t.text "source_4"
-    t.text "fact_5"
-    t.text "source_5"
-    t.text "fact_6"
-    t.text "source_6"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_country_facts_on_country_id"
@@ -59,6 +55,18 @@ ActiveRecord::Schema.define(version: 20171120231021) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_factbooks_on_country_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "title"
+    t.string "source"
+    t.string "content_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_foreign_key "country_facts", "countries"
