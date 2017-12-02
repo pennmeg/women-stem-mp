@@ -13,11 +13,9 @@ class MainsController < ApplicationController
       puts "@country id: #{@country[:id].inspect}"
       @factbook = Factbook.where(:country_id => @country[:id])
       puts "@factbook: #{@factbook.inspect}"
-      @allData = { country: @country, facts: @factbook }
-      # @country_json = @country.as_json
-      # puts "@country_json: #{@country_json.inspect}"
-      # @country_parsed = @country_json
-      # country data = factbook.find(countryid) or country.Factbook
+      @countryfact = CountryFact.where(:country_id => @country[:id])
+      puts "@countryfact: #{@countryfact.inspect}"
+      @allData = { country: @country, facts: @factbook, policy: @countryfact }
       respond_to do |format|
           format.json { render :json => @allData }
       end

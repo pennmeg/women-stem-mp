@@ -89,7 +89,7 @@ footer {
 .column {
   width: 25%;
 }
-#countryInfo {
+#countryFact {
   width: 35%;
 }
 .mapWrapper {
@@ -203,17 +203,20 @@ h2 {
   font-size: 26px;
   text-align: center;
 }
-#countryInfo h3 {
+#countryFact h3 {
   font-size: 24px;
   text-transform: uppercase;
 }
-#countryInfo a, li {
+#countryFact a, li {
   font-size: 20px;
+}
+#countryInfo {
+  min-height: 160px;
 }
 #homeButton {
   position: fixed; /* Fixed/sticky position */
   // bottom: 30px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
+  left: 30px; /* Place the button 30px from the right */
   z-index: 99; /* Make sure it does not overlap */
   padding: 8px;
   font-size: 11px;

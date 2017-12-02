@@ -66,6 +66,7 @@ $(document).on('turbolinks:load', function() {
             console.log("*** ajax success ***");
             console.dir(data); // brings the data from the ajax call: GOLD!
             displayCountryData(data);
+            displayCountryInfo(data);
           }).error(function(data) {
             console.log("*** ajax failed ***");
             errorCountryData(data);
@@ -87,8 +88,8 @@ $(document).on('turbolinks:load', function() {
           var gdp_per_capita = data.facts[0].gdp_per_capita;
           var gdp_capita_yr = data.facts[0].gdp_capita_yr;
           var source_factbook = data.facts[0].source_factbook;
-          var infoHolder = document.getElementById('countryInfo');
-          infoHolder.innerHTML = "";
+          var factHolder = document.getElementById('countryFact');
+          factHolder.innerHTML = "";
           countryName = "<h3>" + countryName + "</h3><br>"
           source_factbook = "<em><a href='https://www.cia.gov/library/publications/the-world-factbook/'>" + source_factbook + "</a></em>";
           population = "<li>Population: " + population + " (" + pop_yr + ")</li>";
@@ -96,16 +97,38 @@ $(document).on('turbolinks:load', function() {
           var literacy = "<li>Literacy: male " + literacy_m + "% | female " + literacy_f + "% (" + lit_yr + ")</li>";
           var youth_unemploy = "<li>Youth Unemployment (15-24yrs): male " + youth_unemploy_m + "% | female " + youth_unemploy_f + "% (" + youth_unemploy_yr + ")</li>";
           var gdp_capita = "<li>GDP Per Capita (PPP): $" + gdp_per_capita + " (" + gdp_capita_yr + ")</li>";
-          infoHolder.innerHTML += countryName;
-          infoHolder.innerHTML += source_factbook;
+          factHolder.innerHTML += countryName;
+          factHolder.innerHTML += source_factbook;
+          factHolder.innerHTML += "<ul>"
+          factHolder.innerHTML += population;
+          factHolder.innerHTML += sex_ratio;
+          factHolder.innerHTML += literacy;
+          factHolder.innerHTML += youth_unemploy;
+          factHolder.innerHTML += gdp_capita;
+          factHolder.innerHTML += "</ul>"
+        };
+        function displayCountryInfo(data) {
+          console.log("=== displayCountryInfo ===");
+          var fact_1 = data.policy[0].fact_1;
+          var fact_2 = data.policy[0].fact_2;
+          var fact_3 = data.policy[0].fact_3;
+          var fact_4 = data.policy[0].fact_4;
+          var source_1 = data.policy[0].source_1;
+          var source_2 = data.policy[0].source_2;
+          var source_3 = data.policy[0].source_3;
+          var source_4 = data.policy[0].source_4;
+          var infoHolder = document.getElementById('countryInfo');
+          infoHolder.innerHTML = "";
           infoHolder.innerHTML += "<ul>"
-          infoHolder.innerHTML += population;
-          infoHolder.innerHTML += sex_ratio;
-          infoHolder.innerHTML += literacy;
-          infoHolder.innerHTML += youth_unemploy;
-          infoHolder.innerHTML += gdp_capita;
+          fact_1 = "<li>" + fact_1 + " (<em><a href='" + source_1 + "'>Source</a></em>)"
+          fact_2 = "<li>" + fact_2 + " (<em><a href='" + source_2 + "'>Source</a></em>)"
+          fact_3 = "<li>" + fact_3 + " (<em><a href='" + source_3 + "'>Source</a></em>)"
+          fact_4 = "<li>" + fact_4 + " (<em><a href='" + source_4 + "'>Source</a></em>)"
+          infoHolder.innerHTML += fact_1;
+          infoHolder.innerHTML += fact_2;
+          infoHolder.innerHTML += fact_3;
+          infoHolder.innerHTML += fact_4;
           infoHolder.innerHTML += "</ul>"
-
         };
         function errorCountryData(errorData) {
           console.log("=== errorCountryData ===");
@@ -131,23 +154,27 @@ $(document).on('turbolinks:load', function() {
   });
   function scrollOverview(){
     console.log("--- go to overview section ---");
+    var offset = 20;
     $('html, body').animate({
-     scrollTop: $("#overview").offset().top}, 1500);
+     scrollTop: $("#overview").offset().top + offset}, 1500);
   };
   $('#problemButton').on('click', function(){
     console.log("--- go to problem section ---");
+    var offset = 20;
     $('html, body').animate({
-     scrollTop: $("#problem").offset().top}, 1500);
+     scrollTop: $("#problem").offset().top + offset}, 1500);
   });
   $('#internationalButton').on('click', function(){
     console.log("--- go to international section ---");
+    var offset = 20;
     $('html, body').animate({
-     scrollTop: $("#international").offset().top}, 1500);
+     scrollTop: $("#international").offset().top + offset}, 1500);
   });
   $('#countryButton').on('click', function(){
     console.log("--- go to country section ---");
+    var offset = 20;
     $('html, body').animate({
-     scrollTop: $("#country").offset().top}, 1500);
+     scrollTop: $("#country").offset().top + offset}, 1500);
   });
   $('#munButton').on('click', function(){
     var offset = 18;
@@ -166,10 +193,11 @@ $(document).on('turbolinks:load', function() {
           }
       });
   });
-// go to top of webpage
-$('#topButton').on('click', function(){
-  console.log("-- clicked topButton --");
-  window.scrollTo(0, 0);
-})
-// Add code to make navigation/header not show until you are past the home slide same with top button
+  $('#topButton').on('click', function(){
+    console.log("-- clicked topButton --");
+    // scroll to the top of webpage
+    $('html, body').animate({
+     scrollTop: 0}, 'slow');
+  })
+  // Add code to make navigation/header not show until you are past the home slide same with top button
 });
