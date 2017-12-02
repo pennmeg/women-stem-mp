@@ -9,7 +9,78 @@ $(document).on('turbolinks:load', function() {
     console.log("=== PATHNAME: /country ===");
     loadMap();
   };
-  // map functions and styling
+  // ==== hide buttons and nav on homepage
+  $(window).scroll(function() {
+    var homeSlide = 900;
+    if($(window).scrollTop() < homeSlide) {
+      $('header').css('visibility', 'hidden');
+      $('#topButton').css('visibility', 'hidden');
+    } else {
+      $('header').css('visibility', 'visible');
+      $('#topButton').css('visibility', 'visible');
+    };
+  });
+  // ==== scroll to the top of webpage when #topButton is clicked
+  $('#topButton').on('click', function(){
+    console.log("-- clicked topButton --");
+    $('html, body').animate({
+     scrollTop: 0}, 'slow');
+  });
+  // ==== show and hide the navigation bar
+  $('#menuButton').on('click', function(){
+    console.log("--- menuButton ---");
+    $('nav').slideToggle('fast');
+  });
+  // ==== move to different sections on the webpage
+  $('#scrollDown').on('click', function() {
+    scrollOverview();
+  });
+  $('#overviewButton').on('click', function(){
+    scrollOverview();
+  });
+  function scrollOverview(){
+    console.log("--- go to overview section ---");
+    var offset = 20;
+    $('html, body').animate({
+     scrollTop: $("#overview").offset().top + offset}, 1500);
+  };
+  $('#problemButton').on('click', function(){
+    console.log("--- go to problem section ---");
+    var offset = 20;
+    $('html, body').animate({
+     scrollTop: $("#problem").offset().top + offset}, 1500);
+  });
+  $('#internationalButton').on('click', function(){
+    console.log("--- go to international section ---");
+    var offset = 20;
+    $('html, body').animate({
+     scrollTop: $("#international").offset().top + offset}, 1500);
+  });
+  $('#countryButton').on('click', function(){
+    console.log("--- go to country section ---");
+    var offset = 20;
+    $('html, body').animate({
+     scrollTop: $("#country").offset().top + offset}, 1500);
+  });
+  $('#munButton').on('click', function(){
+    var offset = 18;
+    console.log("--- go to mun section ---");
+    $('html, body').animate({
+     scrollTop: $("#mun").offset().top + offset}, 1500);
+  });
+  // ==== page animations
+  $('.count').each(function () {
+      $(this).prop('Counter',0).animate({
+          Counter: $(this).text()
+      }, {
+          duration: 4000,
+          easing: 'swing',
+          step: function (now) {
+              $(this).text(Math.ceil(now));
+          }
+      });
+  });
+  // !!! ==== map functions and styling
   // $(function(){ $('#world-map').vectorMap({ map: 'world_mill' }); });
   function loadMap(){
     console.log("=== loadMap ===");
@@ -53,7 +124,7 @@ $(document).on('turbolinks:load', function() {
             break;
           } else {
             console.log("Choose another country");
-          }
+          };
         };
         function getCountryData(countryCode){
           console.log("=== getCountryData ===");
@@ -140,64 +211,4 @@ $(document).on('turbolinks:load', function() {
       },
     });
   };
-  // show and hide the menu
-  $('#menuButton').on('click', function(){
-    console.log("--- menuButton ---");
-    $('nav').slideToggle('fast');
-  });
-  // move to different sections on the webpage
-  $('#scrollDown').on('click', function() {
-    scrollOverview();
-  });
-  $('#overviewButton').on('click', function(){
-    scrollOverview();
-  });
-  function scrollOverview(){
-    console.log("--- go to overview section ---");
-    var offset = 20;
-    $('html, body').animate({
-     scrollTop: $("#overview").offset().top + offset}, 1500);
-  };
-  $('#problemButton').on('click', function(){
-    console.log("--- go to problem section ---");
-    var offset = 20;
-    $('html, body').animate({
-     scrollTop: $("#problem").offset().top + offset}, 1500);
-  });
-  $('#internationalButton').on('click', function(){
-    console.log("--- go to international section ---");
-    var offset = 20;
-    $('html, body').animate({
-     scrollTop: $("#international").offset().top + offset}, 1500);
-  });
-  $('#countryButton').on('click', function(){
-    console.log("--- go to country section ---");
-    var offset = 20;
-    $('html, body').animate({
-     scrollTop: $("#country").offset().top + offset}, 1500);
-  });
-  $('#munButton').on('click', function(){
-    var offset = 18;
-    console.log("--- go to mun section ---");
-    $('html, body').animate({
-     scrollTop: $("#mun").offset().top + offset}, 1500);
-  });
-  $('.count').each(function () {
-      $(this).prop('Counter',0).animate({
-          Counter: $(this).text()
-      }, {
-          duration: 4000,
-          easing: 'swing',
-          step: function (now) {
-              $(this).text(Math.ceil(now));
-          }
-      });
-  });
-  $('#topButton').on('click', function(){
-    console.log("-- clicked topButton --");
-    // scroll to the top of webpage
-    $('html, body').animate({
-     scrollTop: 0}, 'slow');
-  })
-  // Add code to make navigation/header not show until you are past the home slide same with top button
 });

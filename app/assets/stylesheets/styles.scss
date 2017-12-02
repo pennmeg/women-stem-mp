@@ -33,7 +33,7 @@ body {
     cursor: pointer;
   }
   #topButton {
-    // visibility: hidden;
+    visibility: hidden;
     position: fixed; /* Fixed/sticky position */
     bottom: 30px; /* Place the button at the bottom of the page */
     right: 30px; /* Place the button 30px from the right */
@@ -50,6 +50,7 @@ body {
   }
 }
 header {
+  visibility: hidden;
   position: fixed;
   width: 100%;
   span {
@@ -230,7 +231,7 @@ h2 {
   cursor: pointer;
 }
 .highLight {
-  background-color: rgba(225, 70,	88, 0.6);
+  background-color: rgba(225, 70,	88, 0.6); /* $coral */
   padding: 1px;
 }
 /* mun */
