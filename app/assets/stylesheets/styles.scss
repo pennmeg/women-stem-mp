@@ -1,13 +1,16 @@
 /* SASS VARIABLE */
 $site-white: #FDFDFF;
 $site-black: #111;
+$grey: #c0c0c1;
 $light-grey: #F1F1F2;
-$dark-grey: #BCBABE;
-$deep-purple: #3F3250;
-$coral: #E14658;
-$transparent-background: rgba(255, 255, 255, 0.6);
+$light-yellow: #e7cc8f;
+$yellow: #efaa52;
+$red: #613a43;
+$transparent-background: rgba(255, 255, 255, 0.5);
 $parallax-photo: 50% 0 no-repeat fixed;
+$large-font: 32px;
 $medium-font: 24px;
+$small-font: 18px;
 $xsmall-font: 11px;
 $raleway: 'Raleway', sans-serif;
 $roboto: 'Roboto', sans-serif;
@@ -33,7 +36,7 @@ body {
     color: $site-black;
   }
   button:hover {
-    color: $coral;
+    color: $yellow;
     cursor: pointer;
   }
   #topButton {
@@ -74,27 +77,29 @@ footer {
     text-transform: uppercase;
   }
   a:hover {
-    background-color: $coral;
+    background-color: $yellow;
     cursor: pointer;
   }
 }
+/* ==== Overwrites ==== */
+em {
+  font-style: italic;
+}
+button, button:active, button:focus {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  outline: 0;
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+}
 /* ==== Buttons ==== */
 .linkButton {
-  background-color: $coral;
+  background-color: $yellow;
   padding: 8px;
   border-radius: 4px;
   font-size: $xsmall-font;
   text-transform: uppercase;
-}
-/* !!!! COME BACK TO FORMATTING */
-.source {
-  display: none;
-}
-
-.quote {
-  background-color: $transparent-background;
-  padding: 8px;
-  border-radius: 4px;
 }
 /* ==== Wrapper: General ==== */
 .wrapper {
@@ -104,6 +109,12 @@ footer {
 }
 .column {
   width: 25%;
+}
+.column50 {
+  width: 48%;
+}
+.column75 {
+  width: 75%;
 }
 #countryFact {
   width: 35%;
@@ -126,7 +137,18 @@ footer {
 }
 .innerContent {
   padding: 0px 100px;
+  text-transform: uppercase;
 }
+/* !!!! COME BACK TO FORMATTING */
+.source {
+  display: none;
+}
+.quote {
+  background-color: $transparent-background;
+  padding: 8px;
+  border-radius: 4px;
+}
+
 /* ==== Main Page: Home Slide ==== */
 #home_slide {
   background: url("UN_NafiseMotlaq_WorldBank.jpg") $parallax-photo;
@@ -147,61 +169,159 @@ footer {
     font-size: 60px;
   }
 }
-/* other */
-.linkButton {
-  background-color: $coral;
-  padding: 8px;
-  border-radius: 4px;
-  font-size: $xsmall-font;
-  text-transform: uppercase;
-}
-.stat {
-  font-size: 40px;
-  background-color: $deep-purple;
-  border: 2px $deep-purple solid;
-  border-radius: 50%;
-  padding: 6px;
-  margin: 3px;
-}
+/* ==== Overview ==== */
 #slide2 {
   font-size: 42px;
   #define {
     width: 50%;
+    text-transform: capitalize;
   }
   .firstL {
-    color: $coral;
+    color: $yellow;
   }
 }
-
 #slide3 {
-  background-color: #223843;
-  color: $light-grey;
+  background-color: $red;
+  color: $site-white;
   text-align: center;
+  font-size: $large-font;
+}
+#slide4 {
+  background-color: $light-yellow;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
 }
 .count {
   font-size: 62px;
 }
-#slide4 {
-  text-align: center;
-  font-size: 32px;
-}
 #slide5 {
   background: url("VisualNewsAssociates_WB.jpg") 50% 0 no-repeat fixed;
   background-size: cover;
-  color: $light-grey;
+  color: $site-black;
+  font-size: $medium-font;
   p {
-    background-color: rgba(208, 150, 131, 0.5);
-    padding: 5px;
-    border-radius: 3px;
+    text-transform: capitalize;
   }
 }
-#slide51 {
+.highlight {
+  display: inline-block;
+  background-color: $yellow;
+  margin: 1px;
+  transform: scale(1.2) rotate(-2deg) skew(-20deg);
+  position: relative;
+  // z-index: -1; /* is making it disappear */
+}
+.highlight_text {
+  display: inherit;
+  transform: scale(0.7) rotate(2deg) skew(20deg);
+}
+#slide6 {
+  text-align: center;
+  font-size: 32px;
+  text-transform: uppercase;
+  #female {
+    color: $light-yellow;
+  }
+}
+#slide7 {
+  background-color: $red;
+  text-align: center;
+  h3 {
+    font-size: $medium-font;
+  }
+}
+#slide8 {
+  background: url("WomenWorkingonENIAC_USArmy.jpg") $parallax-photo;
+  background-size: cover;
+  color: white;
+  font-size: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+#slide10 {
+  background-color: $light-yellow;
+  color: $site-white;
+  // font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+}
+/* ==== International ==== */
+#slide11 {
+  background: url("emma_watson_APPhoto_MatildeCampodonico.jpg") $parallax-photo;
+  background-size: cover;
+  p {
+    margin-left: 750px;
+    margin-right: 50px;
+    font-size: $medium-font;
+  }
+}
+#slide12 {
+  font-size: 46px;
+  color: $yellow;
+  text-align: center;
+  background-color: white;
+}
+hr {
+  border: 0.5px $yellow solid;
+}
+#slide13 {
+  background-color: $light-yellow;
+  font-size: 34px;
+  text-align: center;
+  i {
+    padding: 0px 8px;
+  }
+}
+#slide14 {
   background: url("UN_manuelElias.jpg") 50% 0 no-repeat fixed;
   background-size: cover;
+  p {
+    margin-left: 50px;
+    margin-right: 700px;
+    font-size: $small-font;
+  }
 }
-.highLight {
-  background-color: rgba(225, 70,	88, 0.6); /* $coral */
-  padding: 1px;
+#slide20 {
+  text-align: center;
+  h3 {
+    font-size: 32px;
+  }
+}
+#slide22 {
+  background-color: white;
+  font-size: $medium-font;
+  img {
+    display: block;
+    margin-left: auto;
+    padding-right: 10px;
+  }
+  .column75 {
+    border-left: 0.5px $yellow solid;
+    padding-left: 10px;
+  }
+}
+#slide23, #slide21 {
+  background-color: $red;
+}
+#slide24 {
+  background-color: white;
+  font-size: $medium-font;
+  text-align: justify;
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+#slide16{
+  background: url("UNWomen_GaganjitSingh.jpg") 50% 0 no-repeat fixed;
+  background-size: cover;
+  color: $yellow;
+  font-size: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 /* ==== Country Slide & Map ==== */
 #country {
@@ -210,6 +330,7 @@ footer {
   p {
     font-size: $medium-font;
     padding-top: 10px;
+    text-transform: capitalize;
   }
 }
 #countryMap {
@@ -228,6 +349,9 @@ footer {
 }
 #countryFact a, li {
   font-size: 20px;
+}
+#countryFact span {
+  margin: 0px 8px;
 }
 #countryInfo {
   min-height: 160px;
@@ -250,5 +374,6 @@ footer {
   p {
     font-size: $medium-font;
     color: $site-black;
+    text-transform: capitalize;
   }
 }

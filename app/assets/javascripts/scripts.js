@@ -93,25 +93,25 @@ $(document).on('turbolinks:load', function() {
       series: {
         regions: [{
           scale: {
-            coral: '#E14658'
+            yellow: '#efaa52'
           },
           attribute: 'fill',
           values: {
-            "BR": 'coral', // Brazil
-            "CN": 'coral', // China
-            "CR": 'coral', // Costa Rica
-            "EG": 'coral', // Egypt
-            "DE": 'coral', // Germany
-            "GR": 'coral', // Greece
-            "IN": 'coral', // India
-            "IT": 'coral', // Italy
-            "JP": 'coral', // Japan
-            "LU": 'coral', // Luxembourg
-            "MM": 'coral', // Myanmar
-            "NL": 'coral', // Netherlands
-            "NG": 'coral', // Nigeria
-            "SA": 'coral', // Saudi Arabia
-            "US": 'coral' // USA
+            "BR": 'yellow', // Brazil
+            "CN": 'yellow', // China
+            "CR": 'yellow', // Costa Rica
+            "EG": 'yellow', // Egypt
+            "DE": 'yellow', // Germany
+            "GR": 'yellow', // Greece
+            "IN": 'yellow', // India
+            "IT": 'yellow', // Italy
+            "JP": 'yellow', // Japan
+            "LU": 'yellow', // Luxembourg
+            "MM": 'yellow', // Myanmar
+            "NL": 'yellow', // Netherlands
+            "NG": 'yellow', // Nigeria
+            "SA": 'yellow', // Saudi Arabia
+            "US": 'yellow' // USA
           }
         }],
       },
