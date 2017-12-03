@@ -91,7 +91,7 @@ button, button:active, button:focus {
   box-shadow: none;
   outline: 0;
   text-transform: uppercase;
-  font-family: 'Raleway', sans-serif;
+  font-family: $raleway;
 }
 /* ==== Buttons ==== */
 .linkButton {
@@ -129,6 +129,7 @@ button, button:active, button:focus {
   padding: 200px 0px;
 }
 .slides {
+  position: relative;
   height: 300px;
   margin: 0 auto;
   overflow: hidden;
@@ -139,16 +140,34 @@ button, button:active, button:focus {
   padding: 0px 100px;
   text-transform: uppercase;
 }
-/* !!!! COME BACK TO FORMATTING */
-.source {
-  display: none;
-}
 .quote {
   background-color: $transparent-background;
   padding: 8px;
   border-radius: 4px;
 }
-
+.source {
+  position: absolute;
+  font-size: $xsmall-font;
+  padding: 5px;
+  bottom: 0;
+  left: 0;
+  text-transform: capitalize;
+}
+.photoSource {
+  font-size: $xsmall-font;
+  color: $site-black;
+  position: absolute;
+  padding: 5px;
+  top: 0;
+  left: 0;
+  text-transform: capitalize;
+}
+#bottomSource {
+  font-size: $xsmall-font;
+  color: $site-black;
+  padding: 0px;
+  margin: 0px;
+}
 /* ==== Main Page: Home Slide ==== */
 #home_slide {
   background: url("UN_NafiseMotlaq_WorldBank.jpg") $parallax-photo;
@@ -348,6 +367,9 @@ hr {
     font-size: $medium-font;
     padding-top: 10px;
     text-transform: capitalize;
+  }
+  .photoSource {
+    font-size: $xsmall-font;
   }
 }
 #countryMap {
