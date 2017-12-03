@@ -24,6 +24,7 @@ $(document).on('turbolinks:load', function() {
     console.log("=== hideNav ===");
     $(window).scroll(function() {
       var homeSlide = 900;
+      // window.innerhieght
       if($(window).scrollTop() < homeSlide) {
         $('header').css('visibility', 'hidden');
         $('#topButton').css('visibility', 'hidden');
