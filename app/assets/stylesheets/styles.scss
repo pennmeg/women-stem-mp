@@ -302,8 +302,25 @@ hr {
     padding-left: 10px;
   }
 }
-#slide23, #slide21 {
+#slide21 {
   background-color: $red;
+  color: white;
+  h3 {
+    font-size: $large-font;
+    font-weight: bold;
+    text-align: center;
+  }
+  p {
+    font-size: $medium-font;
+    text-align: justify;
+  }
+}
+#slide23 {
+  background-color: $red;
+  font-size: $large-font;
+  .highlight {
+    margin: 10px;
+  }
 }
 #slide24 {
   background-color: white;
