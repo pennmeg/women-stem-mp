@@ -11,7 +11,11 @@ $(document).on('turbolinks:load', function() {
     $('header').css('visibility', 'visible');
     $('#topButton').css('visibility', 'visible');
   };
-  if (pathname == "/home") {
+  if (pathname == "/" ) {
+    console.log("=== PATHNAME: /home ===");
+    hideNav();
+  };
+  if (pathname == "/home" ) {
     console.log("=== PATHNAME: /home ===");
     hideNav();
   };
