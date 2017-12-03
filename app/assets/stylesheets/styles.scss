@@ -1,13 +1,17 @@
-/* sass variables */
+/* SASS VARIABLE */
 $site-white: #FDFDFF;
 $site-black: #111;
 $light-grey: #F1F1F2;
 $dark-grey: #BCBABE;
 $deep-purple: #3F3250;
 $coral: #E14658;
-$transparent-background: rgba(255, 255, 255, 0.4);
+$transparent-background: rgba(255, 255, 255, 0.6);
 $parallax-photo: 50% 0 no-repeat fixed;
-/* general nav footer */
+$medium-font: 24px;
+$xsmall-font: 11px;
+$raleway: 'Raleway', sans-serif;
+$roboto: 'Roboto', sans-serif;
+/* ==== Site General: Nav / Footer ==== */
 body {
   box-sizing: border-box;
   margin: 0;
@@ -15,9 +19,9 @@ body {
   width: 100%;
   background-color: $site-white;
   color: $site-black;
-  font-family: 'Raleway', sans-serif;
+  font-family: $raleway;
   a {
-    font-family: 'Raleway', sans-serif;
+    font-family: $raleway;
     color: $site-black;
     text-decoration: none;
   }
@@ -34,19 +38,12 @@ body {
   }
   #topButton {
     visibility: hidden;
-    position: fixed; /* Fixed/sticky position */
-    bottom: 30px; /* Place the button at the bottom of the page */
+    position: fixed;
+    bottom: 30px;
     right: 30px; /* Place the button 30px from the right */
     z-index: 99; /* Make sure it does not overlap */
     padding: 8px;
     background-color: $site-white;
-  }
-  .source {
-    display: none;
-  }
-  .quote {
-    background-color: $transparent-background;
-    padding: 2px;
   }
 }
 header {
@@ -68,7 +65,7 @@ header {
 }
 footer {
   text-align: center;
-  font-size: 11px;
+  font-size: $xsmall-font;
   padding: 3px;
   height: 18px;
   a {
@@ -81,14 +78,25 @@ footer {
     cursor: pointer;
   }
 }
+/* ==== Buttons ==== */
 .linkButton {
   background-color: $coral;
   padding: 8px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: $xsmall-font;
   text-transform: uppercase;
 }
-/* wrapper */
+/* !!!! COME BACK TO FORMATTING */
+.source {
+  display: none;
+}
+
+.quote {
+  background-color: $transparent-background;
+  padding: 8px;
+  border-radius: 4px;
+}
+/* ==== Wrapper: General ==== */
 .wrapper {
   display: flex;
   align-items: center;
@@ -103,7 +111,7 @@ footer {
 .mapWrapper {
   width: 65%;
 }
-/* parallax classes */
+/* ==== Parallax and Slides: General ==== */
 .parallax {
   height: 500px;
   margin: 0;
@@ -119,9 +127,9 @@ footer {
 .innerContent {
   padding: 0px 100px;
 }
-/* homepage */
+/* ==== Main Page: Home Slide ==== */
 #home_slide {
-  background: url("UN_NafiseMotlaq_World Bank.jpg") $parallax-photo;
+  background: url("UN_NafiseMotlaq_WorldBank.jpg") $parallax-photo;
   background-size: cover;
   text-align: center;
   color: $site-white;
@@ -133,10 +141,9 @@ footer {
   #scrollDown i:hover {
     color: $light-grey;
     cursor: pointer;
-
   }
   h1 {
-    font-family: 'Roboto', sans-serif;
+    font-family: $roboto;
     font-size: 60px;
   }
 }
@@ -145,7 +152,7 @@ footer {
   background-color: $coral;
   padding: 8px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: $xsmall-font;
   text-transform: uppercase;
 }
 .stat {
@@ -170,9 +177,6 @@ footer {
   background-color: #223843;
   color: $light-grey;
   text-align: center;
-  .column {
-    width: 50%;
-  }
 }
 .count {
   font-size: 62px;
@@ -195,24 +199,31 @@ footer {
   background: url("UN_manuelElias.jpg") 50% 0 no-repeat fixed;
   background-size: cover;
 }
-/* country map */
+.highLight {
+  background-color: rgba(225, 70,	88, 0.6); /* $coral */
+  padding: 1px;
+}
+/* ==== Country Slide & Map ==== */
 #country {
-  // text-align: center;
   background-color: white;
   background: url("international-world-flag-banner.jpg") no-repeat top;
+  p {
+    font-size: $medium-font;
+    padding-top: 10px;
+  }
 }
 #countryMap {
   padding: 75px 50px;
+  h2 {
+    font-size: 26px;
+    text-align: center;
+  }
 }
 #world-map {
   margin: 0 auto;
 }
-h2 {
-  font-size: 26px;
-  text-align: center;
-}
 #countryFact h3 {
-  font-size: 24px;
+  font-size: $medium-font;
   text-transform: uppercase;
 }
 #countryFact a, li {
@@ -222,8 +233,7 @@ h2 {
   min-height: 160px;
 }
 #homeButton {
-  position: fixed; /* Fixed/sticky position */
-  // bottom: 30px; /* Place the button at the bottom of the page */
+  position: fixed;
   left: 30px; /* Place the button 30px from the right */
   z-index: 99; /* Make sure it does not overlap */
   text-align: center;
@@ -232,25 +242,13 @@ h2 {
   color: $light-grey;
   cursor: pointer;
 }
-.highLight {
-  background-color: rgba(225, 70,	88, 0.6); /* $coral */
-  padding: 1px;
-}
-/* mun */
+/* ==== Model UN Section ==== */
 #mun {
-  background: url("Plenary-Session-BestDelegate.jpg") 50% 0 no-repeat fixed;
+  background: url("modelun.png") $parallax-photo;
   background-size: cover;
   width: 100%;
-}
-/* overwrites */
-em {
-  font-style: italic;
-}
-button, button:active, button:focus {
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
-  outline: 0;
-  text-transform: uppercase;
-  font-family: 'Raleway', sans-serif;
+  p {
+    font-size: $medium-font;
+    color: $site-black;
+  }
 }

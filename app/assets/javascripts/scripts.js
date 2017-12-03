@@ -49,19 +49,19 @@ $(document).on('turbolinks:load', function() {
   });
   function scrollOverview(){
     console.log("--- go to overview section ---");
-    var offset = -20;
+    var offset = -30;
     $('html, body').animate({
      scrollTop: $("#overview").offset().top + offset}, 1500);
   };
   $('#internationalButton').on('click', function(){
     console.log("--- go to international section ---");
-    var offset = -20;
+    var offset = -30;
     $('html, body').animate({
      scrollTop: $("#international").offset().top + offset}, 1500);
   });
   $('#countryButton').on('click', function(){
     console.log("--- go to country section ---");
-    var offset = -20;
+    var offset = -30;
     $('html, body').animate({
      scrollTop: $("#country").offset().top + offset}, 1500);
   });
