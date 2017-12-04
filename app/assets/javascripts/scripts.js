@@ -4,41 +4,53 @@ $(document).on('turbolinks:load', function() {
   // ==== check pathname
   var pathname = window.location.pathname;
   console.log("pathname: ", pathname);
-  // === window conditional load map
+  // ==== window conditionals
   if (pathname == "/country") {
     console.log("=== PATHNAME: /country ===");
     loadMap();
     $('header').css('visibility', 'visible');
     $('#topButton').css('visibility', 'visible');
   };
-  if (pathname == "/" ) {
-    console.log("=== PATHNAME: /home ===");
-    hideNav();
-  };
-  if (pathname == "/home" ) {
-    console.log("=== PATHNAME: /home ===");
-    hideNav();
-  };
+  // ==== grabs the innerHeight of a window (good for responsive)
+  // var currentWindow = window.innerHeight;
+  // console.log("currentWindow: ", currentWindow);
+  // ==== testing vsiibility plugin
+  $(window).scroll(function() {
+    console.log("=== TESTING THIS FUNCTION ===");
+    var elementTop = $('#home_slide').offset().top;
+    var elementBottom = elementTop + $('#home_slide').outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    // return elementBottom > viewportTop && elementTop < viewportBottom;
+    if ((elementBottom > viewportTop) && (elementTop < viewportBottom)){
+      // visible
+      $('header').css('visibility', 'hidden');
+      $('#topButton').css('visibility', 'hidden');
+    } else {
+      $('header').css('visibility', 'visible');
+      $('#topButton').css('visibility', 'visible');
+    }
+  });
   // ==== hide buttons and nav on homepage
-  function hideNav() {
-    console.log("=== hideNav ===");
-    $(window).scroll(function() {
-      var homeSlide = 900;
-      // window.innerhieght
-      if($(window).scrollTop() < homeSlide) {
-        $('header').css('visibility', 'hidden');
-        $('#topButton').css('visibility', 'hidden');
-      } else {
-        $('header').css('visibility', 'visible');
-        $('#topButton').css('visibility', 'visible');
-      };
-    });
-  };
+  // function hideNav() {
+  //   console.log("=== hideNav ===");
+  //   $(window).scroll(function() {
+  //     var homeSlide = 900;
+  //     // window.innerhieght
+  //     if($(window).scrollTop() < homeSlide) {
+  //       $('header').css('visibility', 'hidden');
+  //       $('#topButton').css('visibility', 'hidden');
+  //     } else {
+  //       $('header').css('visibility', 'visible');
+  //       $('#topButton').css('visibility', 'visible');
+  //     };
+  //   });
+  // };
   // ==== scroll to the top of webpage when #topButton is clicked
   $('#topButton').on('click', function(){
     console.log("-- clicked topButton --");
     $('html, body').animate({
-     scrollTop: 0}, 1500);
+      scrollTop: 0}, 1500);
   });
   // ==== show and hide the navigation bar
   $('#menuButton').on('click', function(){
@@ -54,27 +66,23 @@ $(document).on('turbolinks:load', function() {
   });
   function scrollOverview(){
     console.log("--- go to overview section ---");
-    var offset = -30;
     $('html, body').animate({
-     scrollTop: $("#overview").offset().top + offset}, 1500);
+     scrollTop: $("#overview").offset().top + -30}, 1500);
   };
   $('#internationalButton').on('click', function(){
     console.log("--- go to international section ---");
-    var offset = -30;
     $('html, body').animate({
-     scrollTop: $("#international").offset().top + offset}, 1500);
+     scrollTop: $("#international").offset().top + -30}, 1500);
   });
   $('#countryButton').on('click', function(){
     console.log("--- go to country section ---");
-    var offset = -30;
     $('html, body').animate({
-     scrollTop: $("#country").offset().top + offset}, 1500);
+     scrollTop: $("#country").offset().top + -30}, 1500);
   });
   $('#munButton').on('click', function(){
     console.log("--- go to mun section ---");
-    var offset = 150;
     $('html, body').animate({
-     scrollTop: $("#mun").offset().top + offset}, 1500);
+     scrollTop: $("#mun").offset().top + 150}, 1500);
   });
   // ==== page animations
   $('.count').each(function () {
@@ -124,9 +132,9 @@ $(document).on('turbolinks:load', function() {
         var countryCode = code;
         console.log("-- click --");
         console.log("Country: ", countryCode);
-        var munCountries = ["BR", "CN", "CR", "EG", "DE", "GR", "IN", "IT", "JP", "LU", "MM", "NL", "NG", "SA", "US"];
-        for (var i = 0; i < munCountries.length; i++) {
-          if (countryCode == munCountries[i]) {
+        var countryArray = ["BR", "CN", "CR", "EG", "DE", "GR", "IN", "IT", "JP", "LU", "MM", "NL", "NG", "SA", "US"];
+        for (var i = 0; i < countryArray.length; i++) {
+          if (countryCode == countryArray[i]) {
             console.log("Show " + countryCode + " country profile");
             getCountryData(countryCode);
             break;
