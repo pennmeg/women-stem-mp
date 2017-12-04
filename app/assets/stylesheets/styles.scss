@@ -6,12 +6,12 @@ $light-grey: #F1F1F2;
 $light-yellow: #e7cc8f;
 $yellow: #efaa52;
 $red: #613a43;
-$transparent-background: rgba(255, 255, 255, 0.5);
+$transparent: rgba(255, 255, 255, 0.5);
 $parallax-photo: 50% 0 no-repeat fixed;
-$large-font: 32px;
-$medium-font: 24px;
-$small-font: 18px;
-$xsmall-font: 11px;
+$large: 32px;
+$medium: 24px;
+$small: 18px;
+$xsmall: 11px;
 $raleway: 'Raleway', sans-serif;
 $roboto: 'Roboto', sans-serif;
 /* ==== Site General: Nav / Footer ==== */
@@ -39,15 +39,6 @@ body {
     color: $yellow;
     cursor: pointer;
   }
-  #topButton {
-    visibility: hidden;
-    position: fixed;
-    bottom: 30px;
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    padding: 8px;
-    background-color: $site-white;
-  }
 }
 header {
   visibility: hidden;
@@ -59,17 +50,17 @@ header {
   }
   #topMenu {
     padding: 4px;
-    background-color: $transparent-background;
+    background-color: $transparent;
   }
   nav {
     display: none;
     padding-bottom: 4px;
-    background-color: $transparent-background;
+    background-color: $transparent;
   }
 }
 footer {
   text-align: center;
-  font-size: $xsmall-font;
+  font-size: $xsmall;
   padding: 3px;
   height: 18px;
   a {
@@ -99,8 +90,18 @@ button, button:active, button:focus {
   background-color: $yellow;
   padding: 8px;
   border-radius: 4px;
-  font-size: $xsmall-font;
+  font-size: $xsmall;
   text-transform: uppercase;
+}
+#topButton {
+  visibility: hidden;
+  position: fixed;
+  bottom: 30px;
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  padding: 8px;
+  background-color: $site-white;
+  border-radius: 4px;
 }
 /* ==== Wrapper: General ==== */
 .wrapper {
@@ -108,11 +109,11 @@ button, button:active, button:focus {
   align-items: center;
   align-content: space-between;
 }
-.column {
+.column25 {
   width: 25%;
 }
 .column50 {
-  width: 48%;
+  width: 50%;
 }
 .column75 {
   width: 75%;
@@ -142,32 +143,41 @@ button, button:active, button:focus {
   text-transform: uppercase;
 }
 .quote {
-  background-color: $transparent-background;
+  background-color: $transparent;
   padding: 8px;
   border-radius: 4px;
 }
-.source {
+.source, .photoSource {
   position: absolute;
-  font-size: $xsmall-font;
+  font-size: $xsmall;
   padding: 5px;
-  bottom: 0;
   left: 0;
   text-transform: capitalize;
+}
+.source {
+  bottom: 0;
 }
 .photoSource {
-  font-size: $xsmall-font;
   color: $site-black;
-  position: absolute;
-  padding: 5px;
   top: 0;
-  left: 0;
-  text-transform: capitalize;
 }
 #bottomSource {
-  font-size: $xsmall-font;
+  font-size: $xsmall;
   color: $site-black;
   padding: 0px;
   margin: 0px;
+}
+.highlight {
+  display: inline-block;
+  background-color: $yellow;
+  margin: 1px;
+  transform: scale(1.2) rotate(-2deg) skew(-20deg);
+  position: relative;
+  // z-index: -1; /* is making it disappear */
+}
+.highlight_text {
+  display: inherit;
+  transform: scale(0.7) rotate(2deg) skew(20deg);
 }
 /* ==== Main Page: Home Slide ==== */
 #home_slide {
@@ -192,8 +202,7 @@ button, button:active, button:focus {
 /* ==== Overview ==== */
 #slide2 {
   font-size: 42px;
-  #define {
-    width: 50%;
+  span {
     text-transform: capitalize;
   }
   .firstL {
@@ -204,80 +213,68 @@ button, button:active, button:focus {
   background-color: $red;
   color: $site-white;
   text-align: center;
-  font-size: $large-font;
+  font-size: $large;
 }
 #slide4 {
   background-color: $light-yellow;
   text-align: center;
-  font-size: 32px;
+  font-size: $large;
   font-weight: bold;
 }
 .count {
   font-size: 62px;
 }
 #slide5 {
-  background: url("VisualNewsAssociates_WB.jpg") 50% 0 no-repeat fixed;
+  background: url("VisualNewsAssociates_WB.jpg") $parallax-photo;
   background-size: cover;
   color: $site-black;
-  font-size: $medium-font;
+  font-size: $medium;
   p {
     text-transform: capitalize;
   }
 }
-.highlight {
-  display: inline-block;
-  background-color: $yellow;
-  margin: 1px;
-  transform: scale(1.2) rotate(-2deg) skew(-20deg);
-  position: relative;
-  // z-index: -1; /* is making it disappear */
-}
-.highlight_text {
-  display: inherit;
-  transform: scale(0.7) rotate(2deg) skew(20deg);
-}
 #slide6 {
   text-align: center;
-  font-size: 32px;
+  font-size: $large;
   text-transform: uppercase;
   #female {
     color: $light-yellow;
   }
 }
 #slide7 {
-  background-color: $red;
-  text-align: center;
-  h3 {
-    font-size: $medium-font;
-  }
-}
-#slide8 {
   background: url("WomenWorkingonENIAC_USArmy.jpg") $parallax-photo;
   background-size: cover;
   color: white;
-  font-size: 32px;
+  font-size: $large;
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
 }
-#slide10 {
+#slide8 {
+  background-color: $red;
+  text-align: center;
+  h3 {
+    font-size: $medium;
+  }
+}
+#slide9 {
   background-color: $light-yellow;
   color: $site-white;
   // font-weight: bold;
-  font-size: 32px;
+  font-size: $large;
   text-align: center;
 }
 /* ==== International ==== */
-#slide11 {
+#slide10 {
   background: url("emma_watson_APPhoto_MatildeCampodonico.jpg") $parallax-photo;
   background-size: cover;
   p {
     margin-left: 750px;
     margin-right: 50px;
-    font-size: $medium-font;
+    font-size: $medium;
   }
 }
-#slide12 {
+#slide11 {
   font-size: 46px;
   color: $yellow;
   text-align: center;
@@ -286,7 +283,7 @@ button, button:active, button:focus {
 hr {
   border: 0.5px $yellow solid;
 }
-#slide13 {
+#slide12 {
   background-color: $light-yellow;
   font-size: 34px;
   text-align: center;
@@ -294,24 +291,35 @@ hr {
     padding: 0px 8px;
   }
 }
-#slide14 {
-  background: url("UN_manuelElias.jpg") 50% 0 no-repeat fixed;
+#slide13 {
+  background: url("UN_manuelElias.jpg") $parallax-photo;
   background-size: cover;
   p {
     margin-left: 50px;
     margin-right: 700px;
-    font-size: $small-font;
+    font-size: $small;
   }
 }
-#slide20 {
+#slide14 {
   text-align: center;
   h3 {
-    font-size: 32px;
+    font-size: $large;
   }
 }
-#slide22 {
+#slide15 {
+  background-color: $red;
+  color: white;
+  text-align: center;
+  h3 {
+    font-size: $large;
+  }
+  p {
+    font-size: $medium;
+  }
+}
+#slide16 {
   background-color: white;
-  font-size: $medium-font;
+  font-size: $medium;
   img {
     display: block;
     margin-left: auto;
@@ -322,38 +330,27 @@ hr {
     padding-left: 10px;
   }
 }
-#slide21 {
-  background-color: $red;
-  color: white;
-  text-align: center;
-  h3 {
-    font-size: $large-font;
-  }
-  p {
-    font-size: $medium-font;
-  }
-}
-#slide23 {
+#slide17 {
   background-color: $light-yellow;
-  font-size: $large-font;
+  font-size: $large;
   .highlight {
     margin: 10px;
   }
 }
-#slide24 {
+#slide18 {
   background-color: white;
-  font-size: $medium-font;
+  font-size: $medium;
   text-align: justify;
   img {
     display: block;
     margin: 0 auto;
   }
 }
-#slide16{
-  background: url("UNWomen_GaganjitSingh.jpg") 50% 0 no-repeat fixed;
+#slide19{
+  background: url("UNWomen_GaganjitSingh.jpg") $parallax-photo;
   background-size: cover;
   color: $yellow;
-  font-size: 32px;
+  font-size: $large;
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
@@ -363,12 +360,12 @@ hr {
   background-color: white;
   background: url("international-world-flag-banner.jpg") no-repeat top;
   p {
-    font-size: $medium-font;
+    font-size: $medium;
     padding-top: 10px;
     text-transform: capitalize;
   }
   .photoSource {
-    font-size: $xsmall-font;
+    font-size: $xsmall;
   }
 }
 #countryMap {
@@ -381,15 +378,17 @@ hr {
 #world-map {
   margin: 0 auto;
 }
-#countryFact h3 {
-  font-size: $medium-font;
-  text-transform: uppercase;
-}
-#countryFact a, li {
-  font-size: 20px;
-}
-#countryFact span {
-  margin: 0px 8px;
+#countryFact {
+  h3 {
+    font-size: $medium;
+    text-transform: uppercase;
+  }
+  a, li {
+    font-size: 20px;
+  }
+  span {
+    margin: 0px 8px;
+  }
 }
 #countryInfo {
   min-height: 160px;
@@ -410,7 +409,7 @@ hr {
   background-size: cover;
   width: 100%;
   p {
-    font-size: $medium-font;
+    font-size: $medium;
     color: $site-black;
     text-transform: capitalize;
   }

@@ -16,37 +16,47 @@ $(document).on('turbolinks:load', function() {
   // console.log("currentWindow: ", currentWindow);
   // ==== testing vsiibility plugin
   $(window).scroll(function() {
-    console.log("=== TESTING THIS FUNCTION ===");
-    var elementTop = $('#home_slide').offset().top;
-    var elementBottom = elementTop + $('#home_slide').outerHeight();
-    var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
-    // return elementBottom > viewportTop && elementTop < viewportBottom;
-    if ((elementBottom > viewportTop) && (elementTop < viewportBottom)){
-      // visible
-      $('header').css('visibility', 'hidden');
-      $('#topButton').css('visibility', 'hidden');
-    } else {
-      $('header').css('visibility', 'visible');
-      $('#topButton').css('visibility', 'visible');
-    }
+    function showHeader(){
+      console.log("=== showHeader ===");
+      var elementTop = $('#home_slide').offset().top;
+      var elementBottom = elementTop + $('#home_slide').outerHeight();
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+      // return elementBottom > viewportTop && elementTop < viewportBottom;
+      if ((elementBottom > viewportTop) && (elementTop < viewportBottom)){
+        // visible
+        $('header').css('visibility', 'hidden');
+        $('#topButton').css('visibility', 'hidden');
+      } else {
+        $('header').css('visibility', 'visible');
+        $('#topButton').css('visibility', 'visible');
+      }
+    };
+    showHeader();
+    function countSlide8(){
+      console.log("=== countSlide8 ===");
+      var elementTop = $('#slide8').offset().top;
+      var elementBottom = elementTop + $('#slide8').outerHeight();
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+      // return elementBottom > viewportTop && elementTop < viewportBottom;
+      if ((elementBottom > viewportTop) && (elementTop < viewportBottom)){
+        // ==== visible ==== run ===== page animations
+        $('#count').each(function () {
+            $(this).prop('Counter',0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 4000,
+                // easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+      }
+    };
+    countSlide8();
   });
-  // ==== hide buttons and nav on homepage
-  // function hideNav() {
-  //   console.log("=== hideNav ===");
-  //   $(window).scroll(function() {
-  //     var homeSlide = 900;
-  //     // window.innerhieght
-  //     if($(window).scrollTop() < homeSlide) {
-  //       $('header').css('visibility', 'hidden');
-  //       $('#topButton').css('visibility', 'hidden');
-  //     } else {
-  //       $('header').css('visibility', 'visible');
-  //       $('#topButton').css('visibility', 'visible');
-  //     };
-  //   });
-  // };
-  // ==== scroll to the top of webpage when #topButton is clicked
   $('#topButton').on('click', function(){
     console.log("-- clicked topButton --");
     $('html, body').animate({
@@ -83,18 +93,6 @@ $(document).on('turbolinks:load', function() {
     console.log("--- go to mun section ---");
     $('html, body').animate({
      scrollTop: $("#mun").offset().top + 150}, 1500);
-  });
-  // ==== page animations
-  $('.count').each(function () {
-      $(this).prop('Counter',0).animate({
-          Counter: $(this).text()
-      }, {
-          duration: 4000,
-          easing: 'swing',
-          step: function (now) {
-              $(this).text(Math.ceil(now));
-          }
-      });
   });
   // !!! ==== map functions and styling
   // $(function(){ $('#world-map').vectorMap({ map: 'world_mill' }); });
