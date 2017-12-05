@@ -10,9 +10,7 @@ $(document).on('turbolinks:load', function() {
     loadMap();
     $('header').css('visibility', 'visible');
     $('#topButton').css('visibility', 'visible');
-  };
-  // for whatever reason it is running these functions on "/" thinking it is "/country"
-  if (pathname == "/home") {
+  } else {
     console.log("=== PATHNAME: /home ===");
     homeScroll();
     flipFemale();

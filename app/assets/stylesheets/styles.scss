@@ -350,8 +350,25 @@ hr {
 #slide17 {
   background-color: $light-yellow;
   font-size: $large;
-  .highlight {
-    margin: 10px;
+  text-align: justify;
+  .pie {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: $yellow 1px solid;
+    background: $light-yellow;
+    background-image: linear-gradient(to right, transparent 50%, $yellow 0);
+  }
+  .pie::before {
+  content: '';
+  display: block;
+  margin-left: 50%;
+  height: 100%;
+  border-radius: 0 100% 100% 0 / 50%;
+  background: $yellow;
+  transform-origin: left;
+  transform: rotate(.1turn);
   }
 }
 #slide18 {
