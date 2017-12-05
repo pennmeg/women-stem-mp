@@ -35,7 +35,7 @@ localhost:3000
 
 ## Built With
 
-* Rails - Backend web framework
+* Ruby on Rails - Backend web framework
 * CSS and Javascript/jQuery - Styling and Functionality
 * j Vector Map [http://jvectormap.com/] - Country Map
 * Postgresql - Database
