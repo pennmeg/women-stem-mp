@@ -409,6 +409,9 @@ hr {
 }
 #countryInfo {
   min-height: 160px;
+  a, li {
+    font-size: 20px;
+  }
 }
 #homeButton {
   position: fixed;

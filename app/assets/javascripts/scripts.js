@@ -11,98 +11,109 @@ $(document).on('turbolinks:load', function() {
     $('header').css('visibility', 'visible');
     $('#topButton').css('visibility', 'visible');
   };
-  // ==== grabs the innerHeight of a window (good for responsive)
-  // var currentWindow = window.innerHeight;
-  // console.log("currentWindow: ", currentWindow);
-  // ==== testing vsiibility plugin
-  $(window).scroll(function() {
-    var a = 0;
-    function showHeader(){
-      console.log("=== showHeader ===");
-      var elementTop = $('#home_slide').offset().top;
-      var elementBottom = elementTop + $('#home_slide').outerHeight();
-      var viewportTop = $(window).scrollTop();
-      var viewportBottom = viewportTop + $(window).height();
-      // return elementBottom > viewportTop && elementTop < viewportBottom;
-      if ((elementBottom > viewportTop) && (elementTop < viewportBottom)){
-        // visible
-        $('header').css('visibility', 'hidden');
-        $('#topButton').css('visibility', 'hidden');
-      } else {
-        $('header').css('visibility', 'visible');
-        $('#topButton').css('visibility', 'visible');
-      }
-    };
-    showHeader();
-    function countSlide8(){
-      console.log("=== countSlide8 ===");
-      var slide8 = $('#slide8').offset().top - window.innerHeight;
-        if (a == 0 && $(window).scrollTop() > slide8) {
-          $('#count').each(function() {
-            var $this = $(this),
-              countTo = $this.attr('data-count');
-            $({countNum: $this.text()}).animate({
-                countNum: countTo
-              },
-              { duration: 4000,
-                easing: 'swing',
-                step: function() {
-                  $this.text(Math.floor(this.countNum));
-                },
-                complete: function() {
-                  $this.text(this.countNum);
-                }
-              }
-            );
-          });
-          a = 1;
-        }
-      };
-    countSlide8();
-  });
-  // ==== animate the female icons
-  setInterval(function(){
-    console.log("=== female toggle ===");
-    $('#female').toggleClass('flip');
-  }, 2000);
+  // for whatever reason it is running these functions on "/" thinking it is "/country"
+  if (pathname == "/home") {
+    console.log("=== PATHNAME: /home ===");
+    homeScroll();
+    flipFemale();
+    homepageButtons();
+  };
   // ==== when button is clicked scroll to top of page
   $('#topButton').on('click', function(){
     console.log("-- clicked topButton --");
     $('html, body').animate({
       scrollTop: 0}, 1500);
   });
-  // ==== show and hide the navigation bar
-  $('#menuButton').on('click', function(){
-    console.log("--- menuButton ---");
-    $('nav').slideToggle('fast');
-  });
-  // ==== move to different sections on the webpage
-  $('#scrollDown').on('click', function() {
-    scrollOverview();
-  });
-  $('#overviewButton').on('click', function(){
-    scrollOverview();
-  });
-  function scrollOverview(){
-    console.log("--- go to overview section ---");
-    $('html, body').animate({
-     scrollTop: $("#overview").offset().top + -30}, 1500);
+  // ==== scroll animations
+  function homeScroll(){
+    $(window).scroll(function() {
+      var a = 0;
+      function showHeader(){
+        console.log("=== showHeader ===");
+        var elementTop = $('#home_slide').offset().top;
+        var elementBottom = elementTop + $('#home_slide').outerHeight();
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+        // return elementBottom > viewportTop && elementTop < viewportBottom;
+        if ((elementBottom > viewportTop) && (elementTop < viewportBottom)){
+          // visible
+          $('header').css('visibility', 'hidden');
+          $('#topButton').css('visibility', 'hidden');
+        } else {
+          $('header').css('visibility', 'visible');
+          $('#topButton').css('visibility', 'visible');
+        }
+      };
+      showHeader();
+      function countSlide8(){
+        console.log("=== countSlide8 ===");
+        var slide8 = $('#slide8').offset().top - window.innerHeight;
+          if (a == 0 && $(window).scrollTop() > slide8) {
+            $('#count').each(function() {
+              var $this = $(this),
+                countTo = $this.attr('data-count');
+              $({countNum: $this.text()}).animate({
+                  countNum: countTo
+                },
+                { duration: 4000,
+                  easing: 'swing',
+                  step: function() {
+                    $this.text(Math.floor(this.countNum));
+                  },
+                  complete: function() {
+                    $this.text(this.countNum);
+                  }
+                }
+              );
+            });
+            a = 1;
+          }
+        };
+      countSlide8();
+    });
   };
-  $('#internationalButton').on('click', function(){
-    console.log("--- go to international section ---");
-    $('html, body').animate({
-     scrollTop: $("#international").offset().top + -30}, 1500);
-  });
-  $('#countryButton').on('click', function(){
-    console.log("--- go to country section ---");
-    $('html, body').animate({
-     scrollTop: $("#country").offset().top + -30}, 1500);
-  });
-  $('#munButton').on('click', function(){
-    console.log("--- go to mun section ---");
-    $('html, body').animate({
-     scrollTop: $("#mun").offset().top + 150}, 1500);
-  });
+  // ==== animate the female icons
+  function flipFemale(){
+    console.log("=== female toggle ===");
+    setInterval(function(){
+      $('#female').toggleClass('flip');
+    }, 3000);
+  };
+  function homepageButtons(){
+    console.log("=== homepageButtons ===");
+    // ==== show and hide the navigation bar
+    $('#menuButton').on('click', function(){
+      console.log("--- menuButton ---");
+      $('nav').slideToggle('fast');
+    });
+    // ==== move to different sections on the webpage
+    $('#scrollDown').on('click', function() {
+      scrollOverview();
+    });
+    $('#overviewButton').on('click', function(){
+      scrollOverview();
+    });
+    function scrollOverview(){
+      console.log("--- go to overview section ---");
+      $('html, body').animate({
+       scrollTop: $("#overview").offset().top + -30}, 1500);
+    };
+    $('#internationalButton').on('click', function(){
+      console.log("--- go to international section ---");
+      $('html, body').animate({
+       scrollTop: $("#international").offset().top + -30}, 1500);
+    });
+    $('#countryButton').on('click', function(){
+      console.log("--- go to country section ---");
+      $('html, body').animate({
+       scrollTop: $("#country").offset().top + -30}, 1500);
+    });
+    $('#munButton').on('click', function(){
+      console.log("--- go to mun section ---");
+      $('html, body').animate({
+       scrollTop: $("#mun").offset().top + 150}, 1500);
+    });
+  };
   // !!! ==== map functions and styling
   // $(function(){ $('#world-map').vectorMap({ map: 'world_mill' }); });
   function loadMap(){
@@ -186,8 +197,16 @@ $(document).on('turbolinks:load', function() {
           source_factbook = "<em><a href='https://www.cia.gov/library/publications/the-world-factbook/'>" + source_factbook + "</a></em>";
           population = "<li>Population: " + population + " (" + pop_yr + ")</li>";
           sex_ratio = "<li>Sex Ratio: " + sex_ratio + " male/female (" + sex_ratio_yr + ")</li>";
-          var literacy = "<li>Literacy: male " + literacy_m + "% | female " + literacy_f + "% (" + lit_yr + ")</li>";
-          var youth_unemploy = "<li>Youth Unemployment (15-24yrs): male " + youth_unemploy_m + "% | female " + youth_unemploy_f + "% (" + youth_unemploy_yr + ")</li>";
+          if (lit_yr == "N/A") {
+            var literacy = "<li>Literacy: male " + literacy_m + "% | female " + literacy_f + "% (" + lit_yr + ")</li>";
+          } else {
+            var literacy = "<li>Literacy: data is not available</li>";
+          };
+          if (lit_yr == "N/A") {
+            var youth_unemploy = "<li>Youth Unemployment (15-24yrs): male " + youth_unemploy_m + "% | female " + youth_unemploy_f + "% (" + youth_unemploy_yr + ")</li>";
+          } else {
+            var youth_unemploy = "<li>Youth Unemployment (15-24yrs): data is not available</li>";
+          };
           var gdp_capita = "<li>GDP Per Capita (PPP): $" + gdp_per_capita + " (" + gdp_capita_yr + ")</li>";
           factHolder.innerHTML += countryName;
           factHolder.innerHTML += source_factbook;
