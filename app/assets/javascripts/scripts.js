@@ -45,8 +45,10 @@ $(document).on('turbolinks:load', function() {
       showHeader();
       function countSlide8(){
         console.log("=== countSlide8 ===");
+        var scrollOffSet = $(window).scrollTop();
         var slide8 = $('#slide8').offset().top - window.innerHeight;
-          if (a == 0 && $(window).scrollTop() > slide8) {
+          if (scrollOffSet > slide8) {
+          // if (a == 0 && $(window).scrollTop() > slide8) { // alternative counting code
             $('#count').each(function() {
               var $this = $(this),
                 countTo = $this.attr('data-count');
