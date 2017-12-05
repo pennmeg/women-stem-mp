@@ -27,9 +27,7 @@ Then you can run the rails server in your terminal and open in your webbrowser t
 rails s
 ```
 
-## Deployment URL
-
-* COMING SOON!
+## Deployment URL https://meganfinalproj.herokuapp.com
 
 ## Built With
 
