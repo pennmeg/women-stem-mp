@@ -75,7 +75,7 @@ $(document).on('turbolinks:load', function() {
     console.log("=== female toggle ===");
     setInterval(function(){
       $('#female').toggleClass('flip');
-    }, 4000);
+    }, 2000);
   };
   function homepageButtons(){
     console.log("=== homepageButtons ===");
