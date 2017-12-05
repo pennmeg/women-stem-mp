@@ -31,7 +31,7 @@ rails s
 ```
 localhost:3000
 ```
-## Deployment URL: https://meganfinalproj.herokuapp.com
+## Deployment URL: https://women-stem-mp.herokuapp.com
 
 ## Built With
 
