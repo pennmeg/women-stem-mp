@@ -41,3 +41,7 @@ rails s
 ## Author
 
 * Megan Penn - https://github.com/pennmeg
+
+## Acknowledgements
+
+Thank you to Kristen Cheriegate for helping me complete the country research necessary for the interactive world map and country facts!
