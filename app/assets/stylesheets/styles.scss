@@ -85,6 +85,9 @@ button, button:active, button:focus {
   text-transform: uppercase;
   font-family: $raleway;
 }
+strong {
+  font-weight: bold;
+}
 /* ==== Buttons ==== */
 .linkButton {
   background-color: $yellow;
@@ -107,13 +110,14 @@ button, button:active, button:focus {
 .wrapper {
   display: flex;
   align-items: center;
-  align-content: space-between;
+  justify-content: space-around;
+  // width: 100%;
 }
 .column25 {
   width: 25%;
 }
 .column50 {
-  width: 50%;
+  width: 48%;
 }
 .column75 {
   width: 75%;
@@ -202,6 +206,14 @@ button, button:active, button:focus {
 /* ==== Overview ==== */
 #slide2 {
   font-size: 42px;
+  #icons {
+    text-align: right;
+    font-size: 80px;
+    padding-right: 5px;
+    .fa-rocket {
+      margin-right: 20px;
+    }
+  }
   span {
     text-transform: capitalize;
   }
@@ -221,8 +233,8 @@ button, button:active, button:focus {
   font-size: $large;
   font-weight: bold;
 }
-.count {
-  font-size: 62px;
+#count {
+  font-size: 56px;
 }
 #slide5 {
   background: url("VisualNewsAssociates_WB.jpg") $parallax-photo;
@@ -237,9 +249,13 @@ button, button:active, button:focus {
   text-align: center;
   font-size: $large;
   text-transform: uppercase;
-  #female {
-    color: $light-yellow;
-  }
+}
+#female {
+  color: $light-yellow;
+}
+#female.flip {
+  transform: rotateY(180deg);
+  transition: 1s;
 }
 #slide7 {
   background: url("WomenWorkingonENIAC_USArmy.jpg") $parallax-photo;
@@ -253,6 +269,7 @@ button, button:active, button:focus {
 #slide8 {
   background-color: $red;
   text-align: center;
+  color: $yellow;
   h3 {
     font-size: $medium;
   }

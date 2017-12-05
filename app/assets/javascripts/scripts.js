@@ -16,6 +16,7 @@ $(document).on('turbolinks:load', function() {
   // console.log("currentWindow: ", currentWindow);
   // ==== testing vsiibility plugin
   $(window).scroll(function() {
+    var a = 0;
     function showHeader(){
       console.log("=== showHeader ===");
       var elementTop = $('#home_slide').offset().top;
@@ -35,28 +36,36 @@ $(document).on('turbolinks:load', function() {
     showHeader();
     function countSlide8(){
       console.log("=== countSlide8 ===");
-      var elementTop = $('#slide8').offset().top;
-      var elementBottom = elementTop + $('#slide8').outerHeight();
-      var viewportTop = $(window).scrollTop();
-      var viewportBottom = viewportTop + $(window).height();
-      // return elementBottom > viewportTop && elementTop < viewportBottom;
-      if ((elementBottom > viewportTop) && (elementTop < viewportBottom)){
-        // ==== visible ==== run ===== page animations
-        $('#count').each(function () {
-            $(this).prop('Counter',0).animate({
-                Counter: $(this).text()
-            }, {
-                duration: 4000,
-                // easing: 'swing',
-                step: function (now) {
-                    $(this).text(Math.ceil(now));
+      var slide8 = $('#slide8').offset().top - window.innerHeight;
+        if (a == 0 && $(window).scrollTop() > slide8) {
+          $('#count').each(function() {
+            var $this = $(this),
+              countTo = $this.attr('data-count');
+            $({countNum: $this.text()}).animate({
+                countNum: countTo
+              },
+              { duration: 4000,
+                easing: 'swing',
+                step: function() {
+                  $this.text(Math.floor(this.countNum));
+                },
+                complete: function() {
+                  $this.text(this.countNum);
                 }
-            });
-        });
-      }
-    };
+              }
+            );
+          });
+          a = 1;
+        }
+      };
     countSlide8();
   });
+  // ==== animate the female icons
+  setInterval(function(){
+    console.log("=== female toggle ===");
+    $('#female').toggleClass('flip');
+  }, 2000);
+  // ==== when button is clicked scroll to top of page
   $('#topButton').on('click', function(){
     console.log("-- clicked topButton --");
     $('html, body').animate({
