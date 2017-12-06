@@ -447,7 +447,8 @@ hr {
     text-transform: capitalize;
   }
 }
-@media screen and (max-device-width: 860px){
+/* ==== MEDIA ==== */
+@media screen and (max-device-width: 460px){
   #slide10 {
     background: url("emma_watson_small.jpg") $parallax-photo;
     background-size: cover;
