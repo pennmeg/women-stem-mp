@@ -481,14 +481,14 @@ hr {
 }
 @media screen and (max-width: 780px) {
      /* start of medium tablet styles */
- .parallax {
-   height: 700px;
-   padding: 300px 50px;
- }
- .slides {
-   height: 400px;
-   padding: 300px 50px;
- }
+ // .parallax {
+ //   height: 700px;
+ //   padding: 300px 50px;
+ // }
+ // .slides {
+ //   height: 400px;
+ //   padding: 300px 50px;
+ // }
   #icons {
     display: none;
   }
@@ -531,9 +531,9 @@ hr {
   #countryMap {
     padding: 75px 15px;
   }
-  #home_slide {
-    background: url("UN_NafiseMotlaq_WorldBank.jpg") 80% 0 no-repeat fixed;
-  }
+  // #home_slide {
+  //   background: url("UN_NafiseMotlaq_WorldBank.jpg") 80% 0 no-repeat fixed;
+  // }
 }
 @media screen and (max-width: 479px) {
      /* start of phone styles */
