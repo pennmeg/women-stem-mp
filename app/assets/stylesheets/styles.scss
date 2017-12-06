@@ -446,6 +446,16 @@ hr {
   }
 }
 /* ==== MEDIA ==== */
+@media screen and (max-device-height: 1000px){
+  .parallax {
+    height: 700px;
+    padding: 200px 100px;
+  }
+  .slides {
+    height: 500px;
+    padding: 200px 100px;
+  }
+}
 @media screen and (max-device-width: 1300px) {
   #slide10 p {
     margin-left: 550px;
@@ -458,7 +468,7 @@ hr {
     margin-right: 0px;
   }
 }
-@media all and (max-device-width: 1020px) {
+@media screen and (max-device-width: 1020px) {
  #countryMap .wrapper {
    flex-direction: column;
  }
@@ -471,17 +481,11 @@ hr {
     margin-left: 450px;
     margin-right: 20px;
   }
-  #slide14 h3 {
-    font-size: $medium;
-  }
   #slide18 img {
     width: 100%;
   }
   #slide18 .wrapper {
     flex-direction: column;
-  }
-  #slide18 {
-    font-size: $small;
   }
 }
 @media screen and (max-device-width: 830px) {
@@ -506,12 +510,9 @@ hr {
     border-top: 0.5px $yellow solid;
     padding-top: 5px;
   }
-  #slide17 {
-    font-size: $medium;
-    .pie {
-      width: 100px;
-      height: 100px;
-    }
+  #slide17 .pie {
+    width: 100px;
+    height: 100px;
   }
 }
 @media screen and (max-device-width: 590px) {
@@ -521,9 +522,6 @@ hr {
   #slide2 .column50 {
     width: 100%;
   }
-  #slide11 {
-    font-size: $large;
-  }
 }
 @media screen and (max-device-width: 540px) {
   #slide6 i {
@@ -532,20 +530,6 @@ hr {
   #count {
     font-size: $medium;
   }
-  #slide15 {
-    h3 {
-      font-size: $medium;
-    }
-    p {
-      font-size: $small;
-    }
-  }
-  #slide16 .column75 {
-    font-size: $small;
-  }
-  #slide18 img {
-    display: none;
-   }
    #slide18 {
      text-align: center;
    }
