@@ -446,19 +446,19 @@ hr {
   }
 }
 /* ==== MEDIA ==== */
-@media all and (max-width: 1300px) {
+@media screen and (max-device-width: 1300px) {
   #slide10 p {
     margin-left: 550px;
     margin-right: 20px;
   }
 }
-@media all and (max-width: 1200px) {
+@media screen and (max-device-width: 1200px) {
   #slide13 p {
     margin-left: 0px;
     margin-right: 0px;
   }
 }
-@media all and (max-width: 1020px) {
+@media all and (max-device-width: 1020px) {
  #countryMap .wrapper {
    flex-direction: column;
  }
@@ -466,7 +466,7 @@ hr {
    width: 100%;
  }
 }
-@media all and (max-width: 960px) {
+@media screen and (max-device-width: 960px) {
   #slide10 p {
     margin-left: 450px;
     margin-right: 20px;
@@ -484,7 +484,7 @@ hr {
     font-size: $small;
   }
 }
-@media all and (max-width: 830px) {
+@media screen and (max-device-width: 830px) {
   #slide10 p {
     margin-left: 0px;
     margin-right: 0px;
@@ -514,7 +514,7 @@ hr {
     }
   }
 }
-@media all and (max-width: 590px) {
+@media screen and (max-device-width: 590px) {
   #icons {
     display: none;
   }
@@ -525,7 +525,7 @@ hr {
     font-size: $large;
   }
 }
-@media all and (max-width: 540px) {
+@media screen and (max-device-width: 540px) {
   #slide6 i {
     font-size: $large;
   }
