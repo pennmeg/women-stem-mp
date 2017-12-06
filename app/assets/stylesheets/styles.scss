@@ -181,6 +181,7 @@ strong {
 /* ==== Main Page: Home Slide ==== */
 #home_slide {
   background: url("UN_NafiseMotlaq_WorldBank.jpg") $parallax-photo;
+  min-width: 100vh;
   background-size: cover;
   text-align: center;
   color: $site-white;
