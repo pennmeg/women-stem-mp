@@ -133,8 +133,6 @@ strong {
   height: 500px;
   margin: 0;
   padding: 200px 100px;
-  width: 100%;
-  overflow: hidden;
 }
 .slides {
   position: relative;
@@ -475,7 +473,6 @@ hr {
    #slide13 p {
      margin-right: 300px;
    }
-
    #world-map {
      width: 400px;
      height: 233px
@@ -490,6 +487,10 @@ hr {
  .slides {
    height: 400px;
    padding: 300px 50px;
+ }
+ #slide10 {
+   background: url("emma_watson_small.jpg") $parallax-photo;
+   background-size: cover;
  }
   #icons {
     display: none;
