@@ -15,9 +15,6 @@ $xsmall: 11px;
 $raleway: 'Raleway', sans-serif;
 $roboto: 'Roboto', sans-serif;
 /* ==== Site General: Nav / Footer ==== */
-* {
-  box-sizing: border-box;
-}
 body {
   margin: 0;
   padding: 0;
@@ -448,9 +445,22 @@ hr {
   }
 }
 /* ==== MEDIA ==== */
-@media screen and (max-device-width: 460px){
-  #slide10 {
-    background: url("emma_watson_small.jpg") $parallax-photo;
-    background-size: cover;
-  }
+// @media screen and (max-width: 991px) {
+//      /* start of large tablet styles */
+//
+// }
+//
+// @media screen and (max-width: 767px) {
+//      /* start of medium tablet styles */
+//
+// }
+@media screen and (max-width: 600px) {
+    #icons {
+      display: none;
+    }
+
 }
+// @media screen and (max-width: 479px) {
+//      /* start of phone styles */
+//
+// }
