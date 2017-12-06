@@ -133,6 +133,7 @@ strong {
   height: 500px;
   margin: 0;
   padding: 200px 100px;
+  width: 100%;
 }
 .slides {
   position: relative;
@@ -481,14 +482,14 @@ hr {
 }
 @media screen and (max-width: 780px) {
      /* start of medium tablet styles */
- // .parallax {
- //   height: 700px;
- //   padding: 300px 50px;
- // }
- // .slides {
- //   height: 400px;
- //   padding: 300px 50px;
- // }
+ .parallax {
+   height: 700px;
+   padding: 300px 50px;
+ }
+ .slides {
+   height: 400px;
+   padding: 300px 50px;
+ }
   #icons {
     display: none;
   }
