@@ -59,10 +59,10 @@ header {
   }
 }
 footer {
-  text-align: center;
-  font-size: $xsmall;
   padding: 3px;
   height: 18px;
+  text-align: center;
+  font-size: $xsmall;
   a {
     color: $site-black;
     text-decoration: none;
@@ -90,10 +90,10 @@ strong {
 }
 /* ==== Buttons ==== */
 .linkButton {
-  background-color: $yellow;
   padding: 8px;
-  border-radius: 4px;
   font-size: $xsmall;
+  background-color: $yellow;
+  border-radius: 4px;
   text-transform: uppercase;
 }
 #topButton {
@@ -454,6 +454,9 @@ hr {
   .slides {
     height: 500px;
     padding: 200px 100px;
+  }
+  #home_slide h1 {
+    font-size: $large;
   }
 }
 @media screen and (max-device-width: 1300px) {
