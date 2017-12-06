@@ -111,16 +111,17 @@ strong {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  // width: 100%;
+  flex-wrap: wrap;
+  width: 100%;
 }
 .column25 {
-  width: 25%;
+  width: 24%;
 }
 .column50 {
   width: 48%;
 }
 .column75 {
-  width: 75%;
+  width: 74%;
 }
 #countryFact {
   width: 35%;
@@ -243,6 +244,9 @@ strong {
   text-align: center;
   font-size: $large;
   text-transform: uppercase;
+  i {
+    font-size: 128px;
+  }
 }
 #female {
   color: $light-yellow;
@@ -424,9 +428,7 @@ hr {
   }
 }
 #homeButton {
-  position: fixed;
-  left: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
+  left: 30px;
   text-align: center;
 }
 #homeButton:hover {
@@ -437,10 +439,117 @@ hr {
 #mun {
   background: url("modelun.png") $parallax-photo;
   background-size: cover;
-  width: 100%;
   p {
     font-size: $medium;
     color: $site-black;
     text-transform: capitalize;
   }
+}
+/* ==== MEDIA ==== */
+@media all and (max-width: 1300px) {
+  #slide10 p {
+    margin-left: 550px;
+    margin-right: 20px;
+  }
+}
+@media all and (max-width: 1200px) {
+  #slide13 p {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+@media all and (max-width: 1020px) {
+ #countryMap .wrapper {
+   flex-direction: column;
+ }
+ #countryFact {
+   width: 100%;
+ }
+}
+@media all and (max-width: 960px) {
+  #slide10 p {
+    margin-left: 450px;
+    margin-right: 20px;
+  }
+  #slide14 h3 {
+    font-size: $medium;
+  }
+  #slide18 img {
+    width: 100%;
+  }
+  #slide18 .wrapper {
+    flex-direction: column;
+  }
+  #slide18 {
+    font-size: $small;
+  }
+}
+@media all and (max-width: 830px) {
+  #slide10 p {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  #slide16 .wrapper {
+    flex-direction: column;
+  }
+  #slide16 img {
+    width: 100%;
+    display: block;
+    margin: auto;
+    padding-right: 0px;
+    padding-bottom: 5px;
+  }
+  #slide16 .column75 {
+    border: none;
+    padding-left: 0px;
+    text-align: center;
+    border-top: 0.5px $yellow solid;
+    padding-top: 5px;
+  }
+  #slide17 {
+    font-size: $medium;
+    .pie {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+@media all and (max-width: 590px) {
+  #icons {
+    display: none;
+  }
+  #slide2 .column50 {
+    width: 100%;
+  }
+  #slide11 {
+    font-size: $large;
+  }
+}
+@media all and (max-width: 540px) {
+  #slide6 i {
+    font-size: $large;
+  }
+  #count {
+    font-size: $medium;
+  }
+  #slide15 {
+    h3 {
+      font-size: $medium;
+    }
+    p {
+      font-size: $small;
+    }
+  }
+  #slide16 .column75 {
+    font-size: $small;
+  }
+  #slide18 img {
+    display: none;
+   }
+   #slide18 {
+     text-align: center;
+   }
+   .question {
+     display: none;
+   }
 }
