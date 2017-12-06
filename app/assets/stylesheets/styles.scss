@@ -446,7 +446,7 @@ hr {
   }
 }
 /* ==== MEDIA ==== */
-@media screen and (max-device-height: 1000px){
+@media screen and (min-device-height: 1000px){
   .parallax {
     height: 700px;
     padding: 200px 100px;
