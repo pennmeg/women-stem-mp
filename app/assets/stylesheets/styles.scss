@@ -15,8 +15,10 @@ $xsmall: 11px;
 $raleway: 'Raleway', sans-serif;
 $roboto: 'Roboto', sans-serif;
 /* ==== Site General: Nav / Footer ==== */
-body {
+* {
   box-sizing: border-box;
+}
+body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -443,5 +445,10 @@ hr {
     font-size: $medium;
     color: $site-black;
     text-transform: capitalize;
+  }
+}
+@media screen and (max-device-width: 860px){
+  #slide10 {
+    background: url("emma_watson_small.jpg");
   }
 }
