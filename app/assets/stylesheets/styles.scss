@@ -455,10 +455,13 @@ hr {
 //
 // }
 @media screen and (max-width: 600px) {
-    #icons {
-      display: none;
-    }
-
+  #icons {
+    display: none;
+  }
+  #slide10 p, #slide13 p {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }
 // @media screen and (max-width: 479px) {
 //      /* start of phone styles */
