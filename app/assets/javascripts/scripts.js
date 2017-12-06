@@ -198,14 +198,14 @@ $(document).on('turbolinks:load', function() {
           population = "<li>Population: " + population + " (" + pop_yr + ")</li>";
           sex_ratio = "<li>Sex Ratio: " + sex_ratio + " male/female (" + sex_ratio_yr + ")</li>";
           if (lit_yr == "N/A") {
-            var literacy = "<li>Literacy: male " + literacy_m + "% | female " + literacy_f + "% (" + lit_yr + ")</li>";
-          } else {
             var literacy = "<li>Literacy: World Factbook data is not available</li>";
+          } else {
+            var literacy = "<li>Literacy: male " + literacy_m + "% | female " + literacy_f + "% (" + lit_yr + ")</li>";
           };
           if (lit_yr == "N/A") {
-            var youth_unemploy = "<li>Youth Unemployment (15-24yrs): male " + youth_unemploy_m + "% | female " + youth_unemploy_f + "% (" + youth_unemploy_yr + ")</li>";
-          } else {
             var youth_unemploy = "<li>Youth Unemployment (15-24yrs): World Factbook data is not available</li>";
+          } else {
+            var youth_unemploy = "<li>Youth Unemployment (15-24yrs): male " + youth_unemploy_m + "% | female " + youth_unemploy_f + "% (" + youth_unemploy_yr + ")</li>";
           };
           var gdp_capita = "<li>GDP Per Capita (PPP): $" + gdp_per_capita + " (" + gdp_capita_yr + ")</li>";
           factHolder.innerHTML += countryName;
