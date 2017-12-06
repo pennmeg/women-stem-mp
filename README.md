@@ -40,6 +40,31 @@ localhost:3000
 * j Vector Map [http://jvectormap.com/] - Country Map
 * Postgresql - Database
 
+## Section Functionality
+
+One of the highlights of this project is the interactive world map (Section: Country Map), where users can click on highlighted a country to find out facts, statistics, and policies.
+
+The map was built using j Vector Map, and then styling was altered to fit site feel and responsiveness. When you click on a country it recognizes the country from code in the j Vector Map library, and matches it to countries being housed in an array (highlighted countries). That begins an ajax call which matches the selected country with those being held in the primary database, and then pulls data from the other two databases using foreign keys. If successful, the information is displayed on the webpage.
+
+Controller code building the selected country object
+```
+    def get_country_data
+      puts "*** get_country_data ***"
+      # country codes are equal
+      @country = Country.where(:country_code => params[:countryCode]).first
+      puts "@country: #{@country.inspect}"
+      puts "@country id: #{@country[:id].inspect}"
+      @factbook = Factbook.where(:country_id => @country[:id])
+      puts "@factbook: #{@factbook.inspect}"
+      @countryfact = CountryFact.where(:country_id => @country[:id])
+      puts "@countryfact: #{@countryfact.inspect}"
+      @allData = { country: @country, facts: @factbook, policy: @countryfact }
+      respond_to do |format|
+          format.json { render :json => @allData }
+      end
+    end
+```
+
 ## Author
 
 * Megan Penn - https://github.com/pennmeg
